@@ -1,0 +1,23 @@
+.navbar, .links-list{
+  display: flex;
+ }
+
+.navbar{
+  justify-content: space-between;
+  padding: 15px;
+  background-color: black;
+}
+
+.navbar a{
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.links-list{
+  gap: 1.2rem;
+}
+
+.links-list a:hover{
+  color:rgb(0, 183, 255);
+}
