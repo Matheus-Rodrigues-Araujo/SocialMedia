@@ -1,5 +1,8 @@
 export const Home = () =>{
   return(
-    <>Home</>
+    <div className="home">
+      <h1>Home</h1>
+      <p>Hello, user</p>
+    </div>
   )
 }
