@@ -9,6 +9,8 @@ import { Register } from './pages/register';
 
 import './styles/App.css';
 import './styles/Header.css';
+import './styles/Login.css';
+import './styles/Register.css';
 function App() {
 
   return (

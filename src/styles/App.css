@@ -10,3 +10,14 @@
   font-family: Poppins, sans-serif;
 }
 
+
+.App{
+  overflow-y: hidden;
+  min-height: 100vh;
+}
+/* body{
+  min-height: 100vh;
+} */
+/* html{
+  min-height: 100vh;
+} */

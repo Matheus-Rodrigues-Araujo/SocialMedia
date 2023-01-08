@@ -26,7 +26,7 @@ export const Header = () =>{
   return (
     <header className="header">
       <nav className='navbar'>
-        <Link to='/' className='logo' >Logo</Link>
+        <Link to='/' className='logo' >SocialMediaApp</Link>
         <ul className='links-list'>
           {
             links.map((link, key) => (
