@@ -1,6 +1,6 @@
-header{
+/* header{
   margin-bottom: 10px;
-}
+} */
 .navbar,
 .links-list {
   display: flex;
@@ -9,7 +9,7 @@ header{
 .navbar {
   justify-content: space-between;
   padding: 15px;
-  background-color: rgb(20, 34, 34);
+  background-color: var(--darkblue);
 }
 
 .navbar a {

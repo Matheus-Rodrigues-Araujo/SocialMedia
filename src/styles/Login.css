@@ -34,6 +34,7 @@
 label{
   display: grid;
   color: white;
+  gap: .5em;
 }
 
 .fields input{
@@ -62,6 +63,13 @@ label{
 
 .fields .submit-btn:hover{
   background-color: rgb(9, 202, 35);
+  outline: none;
+}
+
+
+.error-msg{
+  color: red;
+  font-size: .9rem;
 }
 
 @media screen and (max-width: 720px) {

@@ -8,6 +8,8 @@
 
 :root{
   font-family: Poppins, sans-serif;
+  --lightblue: rgb(0, 183, 255);
+  --darkblue: rgb(20, 34, 34);
 }
 
 
@@ -15,9 +17,10 @@
   overflow-y: hidden;
   min-height: 100vh;
 }
-/* body{
+
+main{
+  display: grid;
+  grid-template-columns: 20% auto;
   min-height: 100vh;
-} */
-/* html{
-  min-height: 100vh;
-} */
+}
+
