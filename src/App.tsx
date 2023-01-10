@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Header } from './components/header';
-import { Sidebar } from './components/sidebar';
-import { About } from './pages/about';
-// import { Configuration } from './pages/configuration';
-import { Contact } from './pages/contact';
-import { Home } from './pages/home';
-import { Login } from './pages/login';
-import { Register } from './pages/register';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import { Header } from './components/header';
+// import { Sidebar } from './components/sidebar';
+// import { About } from './pages/about';
+// import { Contact } from './pages/contact';
+// import { Home } from './pages/home';
+// import { Login } from './pages/login';
+// import { Register } from './pages/register';
+import { Counter } from './features/counter/counter';
 
 import './styles/App.css';
 import './styles/Header.css';
@@ -19,11 +19,11 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      {/* <Router>
         <Header />
         <main>
           <Sidebar />
-           {/*if user not authenticated, the Sidebar component won't be rendered  */}
+           
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/about' element={<About />}/>
@@ -32,7 +32,8 @@ function App() {
             <Route path='/register' element={<Register />}/>
           </Routes>
         </main>
-      </Router>
+      </Router> */}
+      <Counter />
     </div>
   );
 }
