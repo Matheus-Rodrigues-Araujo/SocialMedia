@@ -2,11 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import * as yup  from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-
-export interface LoginInputs{
-  email: string;
-  password: number;
-}
+// import { login } from '../features/auth/authSlice';
+import { useDispatch, useSelector} from 'react-redux';
+import {login} from '../features/auth/authSlice'
 
 const schema = yup.object({
   email: yup.string().required('Email is required!'),
@@ -15,11 +13,26 @@ const schema = yup.object({
 
 export const Login = () => {
   const navigate = useNavigate()
-  const { register,handleSubmit, formState: {errors} } = useForm<LoginInputs>({resolver: yupResolver(schema)})
+  const dispatch = useDispatch()
+  const usersList = useSelector(state => state.user.value)
 
-  const onSubmit = (data:LoginInputs) =>{
-    console.log(data)
-    alert('Welcome!')
+  const { register,handleSubmit, formState: {errors} } = useForm({resolver: yupResolver(schema)})
+
+  const findUser = (data)=>{
+    const currentUser = usersList.map(user => {
+      return user
+    })
+  }
+
+  const onLogin = ()=> {
+    
+    console.log(usersList)
+
+    // dispatch(login(currentUser.id))
+  }
+
+  const onSubmit = () =>{
+    onLogin()
     navigate('/')
   }
 

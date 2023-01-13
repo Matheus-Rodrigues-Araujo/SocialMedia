@@ -1,7 +1,5 @@
-import { links } from "./header"
 import { Link } from "react-router-dom"
 export const Sidebar = () =>{
-  console.log(links)
   return (
     <div className="sidebar" >
       <h3>Your profile</h3>

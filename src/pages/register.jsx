@@ -2,12 +2,10 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'; 
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-interface RegisterInputs{
-  username: string;
-  email: string;
-  password: string;
-  verifyPassword: string;  
-}
+import { useDispatch } from 'react-redux';
+// import { registerUser } from '../features/user/userSlice';
+import {v4 as uuidv4} from 'uuid'
+import {addUser} from '../features/user/userSlice'
 
 const schema = yup.object({
   username: yup.string().required('Username is required!'),
@@ -17,15 +15,23 @@ const schema = yup.object({
 }).required()
 
 export const Register = () =>{
+  // const user = useAppSelector((state)=> state.user.value)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+  // const user = useSelector(state => state.user.value)
 
-  const {register, handleSubmit, formState:{errors}} = useForm<RegisterInputs>({
+  const {register, handleSubmit, formState:{errors}} = useForm({
     resolver: yupResolver(schema)
   })
 
-  const onSubmit= (data:RegisterInputs) => {
-    console.log(data)
-    alert('You have been registered!')
+  const onSubmit= (data) => {
+    const {username, email, password} = data
+    dispatch(addUser({
+      id: uuidv4(),
+      username,
+      email,
+      password
+    }))
     navigate('/login')
   }
 
