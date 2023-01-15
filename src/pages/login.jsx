@@ -2,9 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import * as yup  from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-// import { login } from '../features/auth/authSlice';
 import { useDispatch, useSelector} from 'react-redux';
-import {login} from '../features/auth/authSlice'
 
 const schema = yup.object({
   email: yup.string().required('Email is required!'),
