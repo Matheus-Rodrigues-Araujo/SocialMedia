@@ -1,10 +1,10 @@
 import { createSlice} from "@reduxjs/toolkit"
 
-import { UsersData } from "../../fakeData"
+// import { UsersData } from "../../fakeData"
 
 const initialState = {
-  value: UsersData,
-  filteredUser: null
+  value: [],
+  filteredUser:{}
 }
 
 export const userSlice = createSlice({
@@ -16,14 +16,14 @@ export const userSlice = createSlice({
     filterUser: (state, action)=>{ state.value.filter(
         (user) => {
           if(user.username === action.payload){
-            state.filteredUser = user
+            state.filteredUser = {...user}
           }
         }
       )
     },
     
     deleteUser: (state,action)=>{
-      state.value = state.value.filter((user)=> user.id !== action.payload.id )
+      state.value = state.value.filter((user) => user.id !== action.payload.id)
     }
 
     ,

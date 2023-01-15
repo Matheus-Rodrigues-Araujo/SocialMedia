@@ -1,7 +1,9 @@
 import "./styles/App.css"
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addUser, filterUser, updateUsername} from "./features/user/userSlice";
+import { addUser, filterUser, updateUsername, deleteUser} from "./features/user/userSlice";
+import uuid from 'react-uuid'
+
 
 function App() {
   const dispatch = useDispatch();
@@ -12,6 +14,16 @@ function App() {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState("")
   const [newUsername, setNewUsername ] = useState("");
+
+  const UserMatch = ({user})=>{
+    return (
+      <div>
+        <p>ID: {user.id}</p>
+        <p>Name: {user.name}</p>
+        <p>Username: {user.username}</p>
+      </div>
+    )
+  }
 
   return (
     <div className="App">
@@ -35,7 +47,7 @@ function App() {
           onClick={() => {
             dispatch(
               addUser({
-                id: userList[userList.length - 1].id + 1,
+                id: uuid(),
                 name,
                 username,
               })
@@ -47,9 +59,9 @@ function App() {
         </button>
       </div>
       <div className="displayUsers">
-        {userList.map((user, key) => {
+        {userList.map((user) => {
           return (
-            <div className="user" key={key}>
+            <div className="user" key={user.id}>
               <h1>Name: {user.name}</h1>
               <h1>Username: {user.username}</h1>
 
@@ -60,7 +72,9 @@ function App() {
                 Update Username
               </button>
 
-              
+              <button onClick={()=> {dispatch(deleteUser({ id: user.id}))}}>
+                Delete User
+              </button>
              
             </div>
           );
@@ -74,9 +88,7 @@ function App() {
           
           <button onClick={()=> dispatch(filterUser(user))}> Find </button>
 
-          <div className="match">
-            {filterUser ? <div>{JSON.stringify(filteredUser)}</div> : <></>}
-          </div>
+          {userList.length >=1 && filteredUser && <UserMatch user={filteredUser} />}
         </div>
       </div>
     </div>
