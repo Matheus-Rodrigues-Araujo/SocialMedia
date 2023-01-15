@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import * as yup  from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useDispatch, useSelector} from 'react-redux';
+// import { useDispatch, useSelector} from 'react-redux';
 
 const schema = yup.object({
   email: yup.string().required('Email is required!'),
@@ -11,20 +11,20 @@ const schema = yup.object({
 
 export const Login = () => {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const usersList = useSelector(state => state.user.value)
+  // const dispatch = useDispatch()
+  // const usersList = useSelector(state => state.user.value)
 
   const { register,handleSubmit, formState: {errors} } = useForm({resolver: yupResolver(schema)})
 
-  const findUser = (data)=>{
-    const currentUser = usersList.map(user => {
-      return user
-    })
-  }
+  // const findUser = (data)=>{
+  //   const currentUser = usersList.map(user => {
+  //     return user
+  //   })
+  // }
 
   const onLogin = ()=> {
     
-    console.log(usersList)
+    // console.log(usersList)
 
     // dispatch(login(currentUser.id))
   }

@@ -1,21 +1,6 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import { useSelector, useDispatch } from 'react-redux'
 // import { logout } from '../features/auth/authSlice'
-export const links = [
-  {
-    name: 'Home',
-    path: '/'
-  },
-  
-  {
-    name: 'Register',
-    path: '/register'
-  },
-  {
-    name: 'Login',
-    path: '/login'
-  }
-]
 
 // const UserLogged = ({func}) =>{
 //   return(
@@ -34,16 +19,10 @@ export const Header = () =>{
       <nav className='navbar'>
         <Link to='/' className='logo' >Talk App</Link>
         <ul className='links-list'>
-         
-          {/* { !auth ? 
-            links.map((link, key) => (
-            <li key={key} >
-              <Link to={link.path} >{link.name}</Link>
-            </li>)
-            )
-            :
-            <UserLogged func={()=> dispatch(logout())}/>
-          } */}
+          <Link to='/' >Home</Link>
+          <Link to='/register' >Register</Link>
+          <Link to='/login' >Login</Link>
+
         </ul>
       </nav>
     </header>
