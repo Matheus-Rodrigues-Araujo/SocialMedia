@@ -16,6 +16,7 @@
   color: white;
   font-weight: 700;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .links-list{
@@ -30,11 +31,16 @@
 }
 
 .logout-btn{
-  background-color: red;
+  background-color: rgb(197, 32, 32);
   color: white;
   font-weight: 700;
   padding: 5px;
-  border: 0;
+  font-size: .9rem;
+  border: none;
   border-radius: .5em;
   cursor: pointer;
+}
+
+.logout-btn:hover{
+  background-color: rgb(255, 0, 0);
 }

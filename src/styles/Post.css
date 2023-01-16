@@ -8,6 +8,11 @@
 .post .fields .btn-styled{
     width: 50%;
     margin: 0 auto;
+    transition: .4s ease-in-out;
+}
+
+.post .fields textarea:hover{
+    outline: 5px solid rgb(8, 123, 158);
 }
 
 .post textarea{
