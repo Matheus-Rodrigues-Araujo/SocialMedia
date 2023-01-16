@@ -66,7 +66,7 @@ export const Register = () =>{
             {errors.verifyPassword?.message ? <p className='error-msg' >{errors.verifyPassword?.message}</p>: <></>}
           </label>
 
-          <input type='submit' className="submit-btn" value='Login' />
+          <input type='submit' className="btn-styled" value='Login' />
         </div>
       </form>
     </section>

@@ -44,7 +44,7 @@ label{
   border-radius: 1.5em;
 }
 
-.fields .submit-btn{
+.fields .btn-styled{
   background-color: rgb(8, 123, 158);
   color: white;
   cursor: pointer;
@@ -61,7 +61,7 @@ label{
   outline: 5px solid rgb(8, 123, 158);
 }
 
-.fields .submit-btn:hover{
+.fields .btn-styled:hover{
   background-color: rgb(9, 202, 35);
   outline: none;
 }

@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import * as yup  from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-// import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch} from 'react-redux';
+import { validateUser } from '../features/user/userSlice';
 
 const schema = yup.object({
   email: yup.string().required('Email is required!'),
@@ -11,8 +12,8 @@ const schema = yup.object({
 
 export const Login = () => {
   const navigate = useNavigate()
-  // const dispatch = useDispatch()
-  // const usersList = useSelector(state => state.user.value)
+  const dispatch = useDispatch()
+  // const auth = useSelector(state => state.users.auth)
 
   const { register,handleSubmit, formState: {errors} } = useForm({resolver: yupResolver(schema)})
 
@@ -22,15 +23,9 @@ export const Login = () => {
   //   })
   // }
 
-  const onLogin = ()=> {
-    
-    // console.log(usersList)
 
-    // dispatch(login(currentUser.id))
-  }
-
-  const onSubmit = () =>{
-    onLogin()
+  const onSubmit = (data) =>{
+    dispatch(validateUser({email: data.email, password: data.password}))
     navigate('/')
   }
 
@@ -53,7 +48,7 @@ export const Login = () => {
             <p className='error-msg' >{errors.password?.message}</p>
           </label>
 
-          <input type='submit' className="submit-btn" value='Login' />
+          <input type='submit' className="btn-styled" value='Login' />
         </div>
       </form>
     </section>

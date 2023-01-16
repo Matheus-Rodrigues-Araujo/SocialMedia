@@ -4,7 +4,7 @@ import { createSlice} from "@reduxjs/toolkit"
 
 const initialState = {
   value: [],
-  filteredUser:{}
+  auth:null
 }
 
 export const userSlice = createSlice({
@@ -13,15 +13,16 @@ export const userSlice = createSlice({
   reducers:{
     addUser: (state, action)=>{ state.value.push(action.payload)}
     ,
-    filterUser: (state, action)=>{ state.value.filter(
+    validateUser: (state, action)=>{ state.value.filter(
         (user) => {
-          if(user.username === action.payload){
-            state.filteredUser = {...user}
+          if(user.email === action.payload.email && user.password === action.payload.password ){
+            state.auth = {...user}
           }
         }
       )
     },
-    
+    disconnectUser: (state)=> {state.auth = null}}
+    ,
     deleteUser: (state,action)=>{
       state.value = state.value.filter((user) => user.id !== action.payload.id)
     }
@@ -35,9 +36,17 @@ export const userSlice = createSlice({
       })
     }
   }
-})
+)
 
-export const { addUser, filterUser, updateUsername, deleteUser  } = userSlice.actions
+export const 
+{
+  addUser,
+  validateUser, 
+  updateUsername, 
+  deleteUser, 
+  disconnectUser
+} = userSlice.actions
+
 export default userSlice.reducer
 
 // deleteUser: (state, action) => {

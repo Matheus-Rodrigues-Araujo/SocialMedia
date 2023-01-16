@@ -1,33 +1,32 @@
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 export const Home = () =>{
-  // const auth = useSelector((state)=> state.auth.isLoggedIn)
-  // const user = useSelector((state)=> state.user.value)
-  // const WelcomeUser = () =>{
-  //   console.log(user)
-  //   return (
-  //     <div>
-  //       <h1>Hello</h1>
-  //       <p>It's always a pleasure!</p>
-  //     </div>
-  //   )
-  // }
+  const auth = useSelector((state) => state.users.auth)
+  const userList = useSelector((state)=>state.users.value)
+  const WelcomeUser = ({user}) =>{
+    return (
+      <div>
+        <h1>Hello, {user.username}</h1>
 
-  // const UserNotLoggedIn = () =>{
-  //   return (
-  //     <div>
-  //       <h1>Log in to be updated</h1>
-  //     </div>
-  //   )
-  // }
+        <p>It's always a pleasure to have you!</p>
+      </div>
+    )
+  }
 
-  const userList = useSelector((state) => state.users.value);
+  const UserNotLoggedIn = () =>{
+    return (
+      <div className="notLogged">
+        <h1>Must be Logged to access the App!</h1>
+        <Link to='/login' className="link-btn">Login</Link>
+      </div>
+    )
+  }
+
 
   return(
     <div className="home">
-      <h1>Hello, User</h1>
-      {console.log(userList.length, userList)}
-      {/* {auth ? <WelcomeUser /> : <UserNotLoggedIn/>} */}
+      {auth ? <WelcomeUser user={auth}/> : <UserNotLoggedIn/>}
     </div>
   )
 }

@@ -5,5 +5,32 @@
 
 .home h1, p{
   font-size: 2rem;
-  color: rgb(68, 55, 55);
+  color: rgb(255, 255, 255);
+}
+
+.link-btn{
+  background-color: rgb(8, 123, 158);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: .4s ease-in-out;
+  text-decoration: none;
+  width: 20%;
+  padding: 15px;
+  border: none;
+  border-radius: 1.2em;
+  margin-inline: auto;
+}
+
+
+.link-btn:hover{
+  background-color: rgb(9, 202, 35);
+  outline: none;
+}
+
+.notLogged{
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1em;
 }
