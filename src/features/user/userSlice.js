@@ -1,9 +1,9 @@
 import { createSlice} from "@reduxjs/toolkit"
 
-// import { UsersData } from "../../fakeData"
+import { UsersData } from "../../fakeData"
 
 const initialState = {
-  value: [],
+  value: UsersData,
   auth:null
 }
 

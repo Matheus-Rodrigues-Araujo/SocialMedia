@@ -34,3 +34,17 @@
   flex-flow: column wrap;
   gap: 1em;
 }
+
+.users-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
+
+.users-list .user{
+  width: 80%;
+  font-size: .7em;
+  border: 2px solid rgb(19, 243, 94);
+  color: white;
+  background-color: var(--darkblue);
+}

@@ -10,7 +10,8 @@ export const Header = () =>{
       return(
         <ul className='links-list' >
           <li><Link to='/'>Home</Link></li>
-          <button onClick={logout}>Logout</button>
+          <li><Link to='/post'>Post</Link></li>
+          <button onClick={logout} className='logout-btn'>Logout</button>
         </ul>
       )
     }

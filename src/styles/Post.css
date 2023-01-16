@@ -1,0 +1,15 @@
+.post{
+    margin-inline: auto;
+    width: 70%;
+    font-size: 2em;
+    margin-block: 60px;
+}
+
+.post .fields .btn-styled{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.post textarea{
+    font-size: 1.3rem;
+}

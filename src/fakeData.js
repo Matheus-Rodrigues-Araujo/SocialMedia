@@ -1,42 +1,28 @@
+import {v4 as uuidv4} from "uuid"
+
 export const UsersData = [
   {
-    id: 1,
-    name: "Leanne Graham",
+    id: uuidv4(),
     username: "Bret",
+    email: 'bret@gmail.com',
+    password: '123'
   },
   {
-    id: 2,
-    name: "Ervin Howell",
+    id: uuidv4(),
     username: "Antonette",
+    email: 'antonette@gmail.com',
+    password: '123'
   },
   {
-    id: 3,
-    name: "Clementine Bauch",
+    id: uuidv4(),
     username: "clementine",
+    email: 'clementine@gmail.com',
+    password: '123'
   },
   {
-    id: 4,
-    name: "Patricia Lebsack",
-    username: "Karianne",
-  },
-  {
-    id: 5,
-    name: "Chelsey Dietrich",
-    username: "Kamren",
-  },
-  {
-    id: 6,
-    name: "Jake Runolfsdottir V",
-    username: "Leopoldo_Corkery",
-  },
-  {
-    id: 7,
-    name: "Mrs. Dennis Schulist",
-    username: "Karley_Dach",
-  },
-  {
-    id: 8,
-    name: "Kurtis Weissnat",
-    username: "Elwyn.Skiles",
-  },
-];
+    id: uuidv4(),
+    username: "Thomas",
+    email: 'thomas@gmail.com',
+    password: '123'
+  }
+]

@@ -7,6 +7,7 @@ import { Header } from "./components/header";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
+import { Post } from "./pages/post";
 
 function App() {
   // const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/post' element={<Post />}/>
         </Routes>
       </Router>
     </div>

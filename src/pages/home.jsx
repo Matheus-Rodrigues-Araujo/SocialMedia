@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export const Home = () =>{
   const auth = useSelector((state) => state.users.auth)
-  const userList = useSelector((state)=>state.users.value)
+  const usersList = useSelector((state)=>state.users.value)
   const WelcomeUser = ({user}) =>{
     return (
       <div>
@@ -23,10 +23,32 @@ export const Home = () =>{
     )
   }
 
+  const AllUsers = () =>{
+    console.log(usersList)
+    return (
+      <ul className="users-list" >
+        {usersList.map((user, key)=>(
+          <li className="user" key={key}>
+            <p>Username: {user.username}</p>
+            <p>Email: {user.email}</p>
+          </li>)
+        )}
+      </ul>
+    )
+  }
+
+  const MainContent = () =>{
+    return(
+      <>
+        <WelcomeUser user={auth}/>
+        <AllUsers/>
+      </>
+    )
+  }
 
   return(
     <div className="home">
-      {auth ? <WelcomeUser user={auth}/> : <UserNotLoggedIn/>}
+      {auth ? <MainContent /> : <UserNotLoggedIn/>}
     </div>
   )
 }
