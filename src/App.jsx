@@ -23,7 +23,6 @@ function App() {
     <div className="App">
       <Router>
         <Header/>
-
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/register' element={<Register />}/>
