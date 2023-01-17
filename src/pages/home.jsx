@@ -6,7 +6,7 @@ export const Home = () =>{
   const usersList = useSelector((state)=>state.users.value)
   const WelcomeUser = ({user}) =>{
     return (
-      <div>
+      <div className="greetings" >
         <h1>Hello, {user.username}</h1>
 
         <p>It's always a pleasure to have you!</p>

@@ -11,6 +11,9 @@ export const Header = () =>{
         <ul className='links-list' >
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/post'>Post</Link></li>
+          <div className='profile-icon'>
+            <div title={auth.username} >{auth.username[0]}</div>
+          </div>
           <button onClick={logout} className='logout-btn'>Logout</button>
         </ul>
       )

@@ -3,8 +3,17 @@
   /* width: 100%; */
 }
 
-.home h1, p{
+.home h1{
   font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+
+.home p{
+  font-size: 1.2rem;
+}
+
+.greetings  p{
+  font-size: 2.5rem;
   color: rgb(255, 255, 255);
 }
 
@@ -37,12 +46,13 @@
 
 .users-list{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1em;
+  padding: 20px;
 }
 
 .users-list .user{
-  width: 80%;
+  /* width: 50%; */
   font-size: .7em;
   border: 2px solid rgb(19, 243, 94);
   color: white;
