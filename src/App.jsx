@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { addUser, filterUser, updateUsername, deleteUser} from "./features/user/userSlice";
 // import uuid from 'react-uuid'
@@ -8,16 +8,17 @@ import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Post } from "./pages/post";
+import Axios from 'axios'
 
 function App() {
-  // const dispatch = useDispatch();
-  // const userList = useSelector((state) => state.users.value);
-  // const filteredUser = useSelector((state)=> state.users.filteredUser)
-
-  // const [name, setName] = useState("");
-  // const [username, setUsername] = useState("");
-  // const [user, setUser] = useState("")
-  // const [newUsername, setNewUsername ] = useState("");
+  
+  const serverConnection = async () =>{
+    await Axios.get('/api')
+    .then((res) => {console.log(res.data)})
+  }
+  
+  serverConnection()
+  
 
   return (
     <div className="App">

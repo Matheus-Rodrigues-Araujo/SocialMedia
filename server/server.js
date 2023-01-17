@@ -14,6 +14,10 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser())
 app.use(cors())
 
+app.get('/', (req, res)=>{
+    res.send({message: 'we did it!'})
+})
+
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`)
 })
