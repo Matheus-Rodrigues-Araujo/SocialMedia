@@ -17,6 +17,7 @@ recordRoutes.route('/api').get((req, res)=>{
     .toArray((err, result)=>{
         if(err) throw new Error("Couldn't connect")
         res.json(result)
+        // res.send('DB connected')
     })
 })
 
