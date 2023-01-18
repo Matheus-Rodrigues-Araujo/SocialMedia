@@ -4,10 +4,12 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const PORT = process.env.PORT || 4000
+require("dotenv").config({path: "./config.env"})
 
-const routes = require('./routes/routes')
+const routes = require('./routes/record')
 app.use(routes)
 
+const database = require("./db/conn")
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
