@@ -1,39 +1,88 @@
-var express = require('express')
-var router = express.Router()
-// const data = [
-//     {
-//       username: "Bret",
-//       email: 'bret@gmail.com',
-//       password: '123'
-//     },
-//     {
-//       username: "Antonette",
-//       email: 'antonette@gmail.com',
-//       password: '123'
-//     },
-//     {
-//       username: "clementine",
-//       email: 'clementine@gmail.com',
-//       password: '123'
-//     },
-//     {
-//       username: "Thomas",
-//       email: 'thomas@gmail.com',
-//       password: '123'
-//     }
-//   ]
+const express = require('express')
+const recordRoutes = express.Router()
 
-router.get('/api', (req, res)=>{
-    res.send('Hello world')
+const dbo = require('../db/conn')
+
+/* This help converts the id from string
+   to ObjectId for the _id
+*/
+const ObjectId = require('mongodb').ObjectId
+
+// Get the list of all the records
+recordRoutes.route('/api').get((req, res)=>{
+    const db_connect = dbo.getDb('social_media')
+    db_connect
+    .collection('users')
+    .find({})
+    .toArray((err, result)=>{
+        if(err) throw new Error("Couldn't connect")
+        res.json(result)
+    })
 })
 
-// router.get('/users', (req, res)=>{
-//     res.send({message: JSON.stringify(data)})
-// })
+// Get a single record by id
+recordRoutes.route('/api/login').get((req, res)=>{
+    let db_connect = dbo.get('social_media')
+    let myQuery = {_id: ObjectId(req.params.id)}
+    db_connect
+    .collection('users')
+    .findOne(myQuery, (err, result)=>{
+        if (err) throw new Error('Record not found!')
+        res.json(result)
+    })
+    
+})
 
-router.get('/api/posts',(req, res)=>{
-    res.send("posts")
+// Create a new record
+recordRoutes.route('/api/register').get((req, response)=>{
+    let db_connect = dbo.get()
+    let myNewObj = {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        profileImg: "",
+        friends: [],
+    }
+    db_connect.collection('users').insertOne(myNewObj,
+        (err, res)=>{
+            if(err) throw err;
+            response.json(res)
+        }
+    )
+})
+
+// Update a record
+recordRoutes.route('/api/user/update',(req, response)=>{
+    let db_connect = dbo.getDb()
+    let myQuery = {_id: ObjectId(req.params.id)}
+
+    let newValues = {
+        $set:{
+            username: req.body.name,
+            email: req.body.email,
+        }
+    }
+    db_connect
+    .collection('users')
+    .updateOne(myQuery, newValues, (err, res)=>{
+        if(err) throw err;
+        response.json(res)
+    })
 })
 
 
-module.exports = router
+// Delete a record
+recordRoutes.route('/api/user/delete',(req, response)=>{
+    let db_connect = dbo.getDb()
+    let myQuery = {_id: ObjectId(req.params.id)}
+    db_connect
+    .collection('users')
+    .deleteOne(myQuery,(err, obj)=>{
+        if(err) throw err;
+        console.log('1 document deleted')
+        response.json(obj)
+    })
+})
+
+
+module.exports = recordRoutes
