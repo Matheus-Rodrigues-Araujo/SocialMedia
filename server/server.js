@@ -9,7 +9,7 @@ require("dotenv").config({path: "./config.env"})
 const recordRoutes = require('./routes/record')
 app.use(recordRoutes)
 
-// const database = require("./db/conn")
+const dbo = require("./db/conn")
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -18,5 +18,9 @@ app.use(cors())
 
 
 app.listen(PORT, ()=>{
+    dbo.connectToServer((err)=>{
+        if (err) console.error(err);
+    })
+
     console.log(`Server is running on port ${PORT}`)
 })
