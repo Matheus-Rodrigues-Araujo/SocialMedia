@@ -41,7 +41,6 @@ recordRoutes.route('/api/register').get((req, response)=>{
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        profileImg: "",
         friends: [],
     }
     db_connect.collection('users').insertOne(myNewObj,

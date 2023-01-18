@@ -37,22 +37,19 @@ export const Register = () =>{
   }
 
   const registerUser = async (user) =>{
-    await Axios.post('/api/register',{
+    fetch('http://localhost:4000/api/register', {
+      method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(user)
-    })
-    .catch(error => {
-      console.log(error)
-      return
+      body: JSON.stringify(user),
     })
   }
 
   const onSubmit= (e) => {
-    // const {username, email, password} = data
-    e.preventDefault()
-    const newUser = {...form}
+    const {username, email, password} = e
+    // e.preventDefault()
+    const newUser = {username, email, password, friends: []}
     registerUser(newUser)
     setForm({
       username: "",
