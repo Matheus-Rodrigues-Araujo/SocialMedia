@@ -24,7 +24,6 @@ export const Home = () =>{
   }
 
   const AllUsers = () =>{
-    console.log(usersList)
     return (
       <ul className="users-list" >
         {usersList.map((user, key)=>(
@@ -41,6 +40,7 @@ export const Home = () =>{
     return(
       <>
         <WelcomeUser user={auth}/>
+        <h3 style={{fontSize: '1.5em'}}  >Dashboard</h3>
         <AllUsers/>
       </>
     )

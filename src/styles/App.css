@@ -17,7 +17,7 @@
 .App{
   overflow-y: hidden;
   min-height: 100vh;
-  background-color: rgba(15, 13, 22, 0.699);
+  /* background-color: rgba(15, 13, 22, 0.699); */
 }
 
 main{

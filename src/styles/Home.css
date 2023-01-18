@@ -5,7 +5,7 @@
 
 .home h1{
   font-size: 2rem;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
 }
 
 .home p{
@@ -14,7 +14,7 @@
 
 .greetings  p{
   font-size: 2.5rem;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
 }
 
 .link-btn{
@@ -54,7 +54,7 @@
 .users-list .user{
   /* width: 50%; */
   font-size: .7em;
-  border: 2px solid rgb(19, 243, 94);
+  border: 5px solid rgb(19, 243, 94);
   color: white;
   background-color: var(--darkblue);
 }
