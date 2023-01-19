@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser())
 app.use(cors())
-
+app.use(express.static(__dirname + '/public'))
 
 app.listen(PORT, ()=>{
     dbo.connectToServer((err)=>{

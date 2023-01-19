@@ -3,11 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react';
-// import Axios from 'axios'
-// import { useDispatch } from 'react-redux';
-// import { registerUser } from '../features/user/userSlice';
+import Axios from 'axios'
 // import {v4 as uuidv4} from 'uuid'
-// import {addUser} from '../features/user/userSlice'
 
 const schema = yup.object({
   username: yup.string().required('Username is required!'),
@@ -17,12 +14,18 @@ const schema = yup.object({
 }).required()
 
 export const Register = () =>{
-  const [form, setForm] = useState({
-    username: "",
-    email: "",
-    password: "",
-    friends: []
-  })
+
+  const postRequest = async (user)=>{
+    await fetch('http://localhost:4000/api/register',{
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {"Content-Type": "application/json"}
+    })
+    .catch((err)=> {
+      console.log(err)
+      return
+    })
+  }
 
   const navigate = useNavigate()
 
@@ -30,33 +33,9 @@ export const Register = () =>{
     resolver: yupResolver(schema)
   })
 
-  const updateForm = (value)=>{
-    return setForm((prev)=>{
-      return {...prev, ...value}
-    })
-  }
-
-  const registerUser = async (user) =>{
-    fetch('http://localhost:4000/api/register', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-  }
-
-  const onSubmit= (e) => {
-    const {username, email, password} = e
-    // e.preventDefault()
-    const newUser = {username, email, password, friends: []}
-    registerUser(newUser)
-    setForm({
-      username: "",
-      email: "",
-      password: "",
-      friends: []
-    })
+  const onSubmit= (data) => {
+    const {username, email, password} = data
+    postRequest({username, email, password, friends:[]})
     navigate('/login')
   }
 
@@ -73,7 +52,7 @@ export const Register = () =>{
             type='text' 
             placeholder="...Username" 
             {...register('username')}  
-            onChange={(e)=> setForm(updateForm({username: e.target.value}))}
+            // onChange={(e)=> setForm(updateForm({"username": e.target.value}))}
             />
             {errors.username?.message ? <p className='error-msg' >{errors.username?.message}</p>: <></>}
           </label>
@@ -84,7 +63,7 @@ export const Register = () =>{
             type='text' 
             placeholder="...Email" 
             {...register('email')}
-            onChange={(e)=> setForm(updateForm(e.target.value))}
+            // onChange={(e)=> setForm(updateForm({"email": e.target.value}))}
             />
             {errors.email?.message ? <p className='error-msg' >{errors.email?.message}</p>: <></>}
           </label>
@@ -95,7 +74,7 @@ export const Register = () =>{
             type='password'
             placeholder="...Password"  
             {...register('password')}
-            onChange={(e)=> setForm(e.target.value)}
+            // onChange={(e)=> setForm(updateForm({"password": e.target.value}))}
             />
             {errors.password?.message ? <p className='error-msg' >{errors.password?.message}</p>: <></>}
           </label>
