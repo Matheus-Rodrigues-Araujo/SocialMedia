@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react';
-import Axios from 'axios'
+// import Axios from 'axios'
 // import { useDispatch } from 'react-redux';
 // import { registerUser } from '../features/user/userSlice';
 // import {v4 as uuidv4} from 'uuid'
