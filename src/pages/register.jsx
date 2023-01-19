@@ -18,6 +18,7 @@ export const Register = () =>{
   const postRequest = async (user)=>{
     await fetch('http://localhost:4000/api/register',{
       method: "POST",
+      mode: 'no-cors',
       body: JSON.stringify(user),
       headers: {"Content-Type": "application/json"}
     })
