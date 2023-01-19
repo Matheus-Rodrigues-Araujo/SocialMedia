@@ -6,12 +6,12 @@ import { useState } from 'react';
 import Axios from 'axios'
 // import {v4 as uuidv4} from 'uuid'
 
-const schema = yup.object({
-  username: yup.string().required('Username is required!'),
-  email: yup.string().required('Email is required!'),
-  password: yup.string().required('Password is required!'),
-  verifyPassword: yup.string().oneOf([yup.ref('password')], 'Passwords must match!').required('Password is required!')  
-}).required()
+// const schema = yup.object({
+//   username: yup.string().required('Username is required!'),
+//   email: yup.string().required('Email is required!'),
+//   password: yup.string().required('Password is required!'),
+//   verifyPassword: yup.string().oneOf([yup.ref('password')], 'Passwords must match!').required('Password is required!')  
+// }).required()
 
 export const Register = () =>{
 
@@ -41,7 +41,7 @@ export const Register = () =>{
 
   return(
     <section className="conteiner">
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)} >
         <h1>Welcome</h1>
         
         <div className="fields" >
