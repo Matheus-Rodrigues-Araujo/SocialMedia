@@ -1,47 +1,46 @@
-import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'; 
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react';
-import Axios from 'axios'
-// import {v4 as uuidv4} from 'uuid'
-
-// const schema = yup.object({
-//   username: yup.string().required('Username is required!'),
-//   email: yup.string().required('Email is required!'),
-//   password: yup.string().required('Password is required!'),
-//   verifyPassword: yup.string().oneOf([yup.ref('password')], 'Passwords must match!').required('Password is required!')  
-// }).required()
 
 export const Register = () =>{
-
-  const postRequest = async (user)=>{
-    await fetch('http://localhost:4000/api/register',{
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {"Content-Type": "application/json"}
-    })
-    .catch((err)=> {
-      console.log(err)
-      return
-    })
-  }
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
 
   const navigate = useNavigate()
 
-  const {register, handleSubmit, formState:{errors}} = useForm({
-    resolver: yupResolver(schema)
-  })
+  function updateForm(value){
+    return setForm((prev)=>{
+      return {...prev,...value}
+    })
+  }
 
-  const onSubmit= (data) => {
-    const {username, email, password} = data
-    postRequest({username, email, password, friends:[]})
+  const onSubmit = async(e) => {
+    e.preventDefault()
+
+    const newUser = {...form, friends: []}
+
+    await fetch("http://localhost:4000/api/register",{
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newUser),
+    })
+    .catch(error => {
+      console.log(error)
+      return
+    })
+
+    setForm({username: "", email: "", password: ""})
     navigate('/login')
   }
 
   return(
     <section className="conteiner">
-      <form className="form" onSubmit={handleSubmit(onSubmit)} >
+      <form className="form" onSubmit={onSubmit} >
         <h1>Welcome</h1>
         
         <div className="fields" >
@@ -49,12 +48,12 @@ export const Register = () =>{
         <label>
             Username
             <input 
-            type='text' 
-            placeholder="...Username" 
-            {...register('username')}  
-            // onChange={(e)=> setForm(updateForm({"username": e.target.value}))}
+            type='text'
+            id="username"
+            value={form.username} 
+            placeholder="...Username"
+            onChange={(e)=> updateForm({username: e.target.value})} 
             />
-            {errors.username?.message ? <p className='error-msg' >{errors.username?.message}</p>: <></>}
           </label>
         
           <label>
@@ -62,31 +61,30 @@ export const Register = () =>{
             <input 
             type='text' 
             placeholder="...Email" 
-            {...register('email')}
-            // onChange={(e)=> setForm(updateForm({"email": e.target.value}))}
+            id="email"
+            value={form.email} 
+            onChange={(e)=> updateForm({email: e.target.value})} 
             />
-            {errors.email?.message ? <p className='error-msg' >{errors.email?.message}</p>: <></>}
           </label>
 
           <label>
             Password
             <input 
             type='password'
-            placeholder="...Password"  
-            {...register('password')}
-            // onChange={(e)=> setForm(updateForm({"password": e.target.value}))}
+            placeholder="...Password"
+            id="password"
+            value={form.password} 
+            onChange={(e)=> updateForm({password: e.target.value})} 
             />
-            {errors.password?.message ? <p className='error-msg' >{errors.password?.message}</p>: <></>}
           </label>
 
           <label>
             Verify password
             <input 
-            type='password' 
+            type='password'
+            id="verify-password" 
             placeholder="...Verify password"
-            {...register('verifyPassword')}
             />
-            {errors.verifyPassword?.message ? <p className='error-msg' >{errors.verifyPassword?.message}</p>: <></>}
           </label>
 
           <input 
