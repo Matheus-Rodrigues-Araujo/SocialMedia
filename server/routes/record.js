@@ -1,16 +1,14 @@
 const express = require('express')
+
 const recordRoutes = express.Router()
 
 const dbo = require('../db/conn')
 
-/* This help converts the id from string
-   to ObjectId for the _id
-*/
-const ObjectId = require('mongodb').ObjectId
+const ObjectId = require('mongodb').ObjectId;
 
 // Get the list of all the records
 recordRoutes.route('/api').get((req, res)=>{
-    const db_connect = dbo.getDb('social_media')
+    let db_connect = dbo.getDb('social_media')
     db_connect
     .collection('users')
     .find({})
@@ -23,7 +21,7 @@ recordRoutes.route('/api').get((req, res)=>{
 
 // Get a single record by id
 recordRoutes.route('/api/login').get((req, res)=>{
-    let db_connect = dbo.get('social_media')
+    let db_connect = dbo.getDb()
     let myQuery = {_id: ObjectId(req.params.id)}
     db_connect
     .collection('users')
@@ -35,17 +33,17 @@ recordRoutes.route('/api/login').get((req, res)=>{
 })
 
 // Create a new record
-recordRoutes.route("/api/register").post((req, response)=>{
+recordRoutes.route("/api/add").post((req, response)=>{
     let db_connect = dbo.getDb()
     let myNewObj = {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        friends: []
     }
     db_connect.collection('users').insertOne(myNewObj,
         (err, res)=>{
             if(err) throw err;
+            // res.set('Access-Control-Allow-Origin', '*');
             response.json(res)
         }
     )

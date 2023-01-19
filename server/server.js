@@ -6,6 +6,12 @@ const cors = require('cors')
 const PORT = process.env.PORT || 4000
 require("dotenv").config({path: "./config.env"})
 
+app.use(cors({
+    origin: "http://localhost:3000/",
+    methods: ["GET", "POST", "PUT", "DELETE"]
+}))
+
+
 const recordRoutes = require('./routes/record')
 app.use(recordRoutes)
 
@@ -14,7 +20,6 @@ const dbo = require("./db/conn")
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser())
-app.use(cors())
 app.use(express.static(__dirname + '/public'))
 
 app.listen(PORT, ()=>{

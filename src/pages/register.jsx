@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'; 
 import { useState } from 'react';
+import {v4 as uuidv4 } from 'uuid'
 
 export const Register = () =>{
   const [form, setForm] = useState({
@@ -19,13 +20,13 @@ export const Register = () =>{
   const onSubmit = async(e) => {
     e.preventDefault()
 
-    const newUser = {...form, friends: []}
+    const newUser = {...form}
 
-    await fetch("http://localhost:4000/api/register",{
+    await fetch("http://localhost:4000/api/add",{
       method: "POST",
-      mode: "no-cors",
+      // mode: "cors",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(newUser),
     })
@@ -50,7 +51,8 @@ export const Register = () =>{
             <input 
             type='text'
             id="username"
-            value={form.username} 
+            value={form.username}
+            name="username" 
             placeholder="...Username"
             onChange={(e)=> updateForm({username: e.target.value})} 
             />
@@ -62,6 +64,7 @@ export const Register = () =>{
             type='text' 
             placeholder="...Email" 
             id="email"
+            name='email'
             value={form.email} 
             onChange={(e)=> updateForm({email: e.target.value})} 
             />
@@ -73,19 +76,20 @@ export const Register = () =>{
             type='password'
             placeholder="...Password"
             id="password"
+            name='password'
             value={form.password} 
             onChange={(e)=> updateForm({password: e.target.value})} 
             />
           </label>
 
-          <label>
+          {/* <label>
             Verify password
             <input 
             type='password'
             id="verify-password" 
             placeholder="...Verify password"
             />
-          </label>
+          </label> */}
 
           <input 
           type='submit'
