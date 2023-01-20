@@ -7,7 +7,7 @@ const dbo = require('../db/conn')
 const ObjectId = require('mongodb').ObjectId;
 
 // Get the list of all the records
-recordRoutes.route('/api').get((req, res)=>{
+recordRoutes.route('/record').get((req, res)=>{
     let db_connect = dbo.getDb('social_media')
     db_connect
     .collection('users')
@@ -20,7 +20,7 @@ recordRoutes.route('/api').get((req, res)=>{
 })
 
 // Get a single record by id
-recordRoutes.route('/api/login').get((req, res)=>{
+recordRoutes.route('/record/:id').get((req, res)=>{
     let db_connect = dbo.getDb()
     let myQuery = {_id: ObjectId(req.params.id)}
     db_connect
@@ -33,30 +33,27 @@ recordRoutes.route('/api/login').get((req, res)=>{
 })
 
 // Create a new record
-recordRoutes.route("/api/add").post((req, response)=>{
-    let db_connect = dbo.getDb()
-    let myNewObj = {
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-    }
-    db_connect.collection('users').insertOne(myNewObj,
-        (err, res)=>{
-            if(err) throw err;
-            // res.set('Access-Control-Allow-Origin', '*');
-            response.json(res)
-        }
-    )
-})
+recordRoutes.route("/record/add").post(function (req, response) {
+    let db_connect = dbo.getDb();
+    let myobj = {
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    };
+    db_connect.collection("users").insertOne(myobj, function (err, res) {
+      if (err) throw err;
+      response.json(res);
+    });
+  });
 
 // Update a record
-recordRoutes.route('/api/user/update',(req, response)=>{
+recordRoutes.route('/update/:id',(req, response)=>{
     let db_connect = dbo.getDb()
     let myQuery = {_id: ObjectId(req.params.id)}
 
     let newValues = {
         $set:{
-            username: req.body.name,
+            username: req.body.username,
             email: req.body.email,
         }
     }
@@ -70,7 +67,7 @@ recordRoutes.route('/api/user/update',(req, response)=>{
 
 
 // Delete a record
-recordRoutes.route('/api/user/delete',(req, response)=>{
+recordRoutes.route('/:id',(req, response)=>{
     let db_connect = dbo.getDb()
     let myQuery = {_id: ObjectId(req.params.id)}
     db_connect

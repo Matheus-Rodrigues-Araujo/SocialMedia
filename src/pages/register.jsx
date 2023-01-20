@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'; 
 import { useState } from 'react';
-import {v4 as uuidv4 } from 'uuid'
 
 export const Register = () =>{
   const [form, setForm] = useState({
@@ -8,32 +7,31 @@ export const Register = () =>{
     email: "",
     password: ""
   })
-
   const navigate = useNavigate()
 
+  
   function updateForm(value){
     return setForm((prev)=>{
       return {...prev,...value}
     })
   }
 
-  const onSubmit = async(e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
 
-    const newUser = {...form}
+    const newPerson = {...form}
 
-    await fetch("http://localhost:4000/api/add",{
+    await fetch("http://localhost:4000/record/add", {
       method: "POST",
-      // mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(newPerson),
     })
     .catch(error => {
-      console.log(error)
-      return
-    })
+      window.alert(error);
+      return;
+    });
 
     setForm({username: "", email: "", password: ""})
     navigate('/login')
@@ -52,7 +50,6 @@ export const Register = () =>{
             type='text'
             id="username"
             value={form.username}
-            name="username" 
             placeholder="...Username"
             onChange={(e)=> updateForm({username: e.target.value})} 
             />
@@ -64,7 +61,6 @@ export const Register = () =>{
             type='text' 
             placeholder="...Email" 
             id="email"
-            name='email'
             value={form.email} 
             onChange={(e)=> updateForm({email: e.target.value})} 
             />
@@ -76,7 +72,6 @@ export const Register = () =>{
             type='password'
             placeholder="...Password"
             id="password"
-            name='password'
             value={form.password} 
             onChange={(e)=> updateForm({password: e.target.value})} 
             />
