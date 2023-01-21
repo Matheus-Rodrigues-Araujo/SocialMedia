@@ -24,7 +24,7 @@ export const Register = () =>{
   const postRequest = async (user)=>{
     await fetch('http://localhost:4000/api/register',{
       method: "POST",
-      mode: 'no-cors',
+      mode: 'cors',
       body: JSON.stringify(user),
       headers: {"Content-Type": "application/json"}
     })
@@ -41,8 +41,8 @@ export const Register = () =>{
   })
 
   const onSubmit= (data) => {
-    const {username, email, password} = data
-    postRequest({username, email, password, friends:[]})
+    data = {...form}
+    postRequest(data)
     navigate('/login')
   }
 

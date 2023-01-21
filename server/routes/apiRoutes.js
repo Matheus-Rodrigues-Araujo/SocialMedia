@@ -1,5 +1,5 @@
 const express = require('express')
-const recordRoutes = express.Router()
+const apiRoutes = express.Router()
 
 const dbo = require('../db/conn')
 
@@ -9,7 +9,7 @@ const dbo = require('../db/conn')
 const ObjectId = require('mongodb').ObjectId
 
 // Get the list of all the records
-recordRoutes.route('/api').get((req, res)=>{
+apiRoutes.route('/api').get((req, res)=>{
     const db_connect = dbo.getDb('social_media')
     db_connect
     .collection('users')
@@ -22,7 +22,7 @@ recordRoutes.route('/api').get((req, res)=>{
 })
 
 // Get a single record by id
-recordRoutes.route('/api/login').get((req, res)=>{
+apiRoutes.route('/api/login').get((req, res)=>{
     let db_connect = dbo.get('social_media')
     let myQuery = {_id: ObjectId(req.params.id)}
     db_connect
@@ -35,7 +35,7 @@ recordRoutes.route('/api/login').get((req, res)=>{
 })
 
 // Create a new record
-recordRoutes.route('/api/register').post((req, response)=>{
+apiRoutes.route('/api/register').post((req, response)=>{
     let db_connect = dbo.get()
     let myNewObj = {
         username: req.body.username,
@@ -52,7 +52,7 @@ recordRoutes.route('/api/register').post((req, response)=>{
 })
 
 // Update a record
-recordRoutes.route('/update/:id').put((req, response)=>{
+apiRoutes.route('/update/:id').put((req, response)=>{
     let db_connect = dbo.getDb()
     let myQuery = {_id: ObjectId(req.params.id)}
 
@@ -72,7 +72,7 @@ recordRoutes.route('/update/:id').put((req, response)=>{
 
 
 // Delete a record
-recordRoutes.route('/delete/:id').delete((req, response)=>{
+apiRoutes.route('/delete/:id').delete((req, response)=>{
     let db_connect = dbo.getDb()
     let myQuery = {_id: ObjectId(req.params.id)}
     db_connect
@@ -85,4 +85,4 @@ recordRoutes.route('/delete/:id').delete((req, response)=>{
 })
 
 
-module.exports = recordRoutes
+module.exports = apiRoutes
