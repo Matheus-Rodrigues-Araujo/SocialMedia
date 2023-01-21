@@ -22,26 +22,25 @@ apiRoutes.route('/api').get((req, res)=>{
 })
 
 // Get a single record by id
-apiRoutes.route('/api/login').get((req, res)=>{
-    let db_connect = dbo.get('social_media')
-    let myQuery = {_id: ObjectId(req.params.id)}
-    db_connect
-    .collection('users')
-    .findOne(myQuery, (err, result)=>{
-        if (err) throw new Error('Record not found!')
-        res.json(result)
-    })
+// apiRoutes.route('/api/login').get((req, res)=>{
+//     let db_connect = dbo.get('social_media')
+//     let myQuery = {_id: ObjectId(req.params.id)}
+//     db_connect
+//     .collection('users')
+//     .findOne(myQuery, (err, result)=>{
+//         if (err) throw new Error('Record not found!')
+//         res.json(result)
+//     })
     
-})
+// })
 
 // Create a new record
-apiRoutes.route('/api/register').post((req, response)=>{
+apiRoutes.route('/register').post((req, response)=>{
     let db_connect = dbo.getDb()
     let myNewObj = {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        friends: [],
     }
     db_connect.collection('users').insertOne(myNewObj,
         (err, res)=>{
