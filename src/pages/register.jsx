@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'; 
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-// import { useState } from 'react';
 import Axios from 'axios'
 
 const schema = yup.object({
@@ -21,38 +20,14 @@ export const Register = () =>{
   })
 
   const onSubmit = async (formData) => {
-    // data =  {...form}
     const {username, email, password} = formData
     const url = "http://localhost:4000/api/register"
     const data = {username, email, password}
     const config = {"content-type": "application/json"}
     const response = await Axios.post(url, data, config)
     response.data && console.log('user created')
-    // await fetch("http://localhost:4000/api/register", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     username: username,
-    //     email: email,
-    //     password: password
-    //   })
-    // })
-    // .catch((err)=>{
-    //   window.alert(err)
-    // })
-
-
-
     navigate('/login')
   }
-
-  // const updateForm = (value)=>{
-  //   return setForm((prev)=>{
-  //     return {...prev, ...value}
-  //   })
-  // }
 
   return(
     <section className="conteiner">
@@ -67,8 +42,6 @@ export const Register = () =>{
             type='text' 
             placeholder="...Username" 
             {...register('username')}
-            // value={form.username}  
-            // onChange={(e)=> updateForm({"username": e.target.value})}
             />
             {errors.username?.message ? <p className='error-msg' >{errors.username?.message}</p>: <></>}
           </label>
@@ -79,8 +52,6 @@ export const Register = () =>{
             type='text' 
             placeholder="...Email" 
             {...register('email')}
-            // value={form.email}  
-            // onChange={(e)=> updateForm({"email": e.target.value})}
             />
             {errors.email?.message ? <p className='error-msg' >{errors.email?.message}</p>: <></>}
           </label>
@@ -91,8 +62,6 @@ export const Register = () =>{
             type='password'
             placeholder="...Password"  
             {...register('password')}
-            // value={form.password}  
-            // onChange={(e)=> updateForm({"password": e.target.value})}
             />
             {errors.password?.message ? <p className='error-msg' >{errors.password?.message}</p>: <></>}
           </label>
