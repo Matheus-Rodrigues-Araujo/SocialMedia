@@ -27,7 +27,7 @@ export const Register = () =>{
     resolver: yupResolver(schema)
   })
 
-  const onSubmit= async (data) => {
+  const onSubmit = async (data) => {
     // data =  {...form}
     const {username, email, password} = data
   

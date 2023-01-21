@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form'
-import * as yup  from 'yup'
+import { useForm } from 'react-hook-form';
+import * as yup  from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useDispatch} from 'react-redux';
+import Axios from 'axios';
 import { validateUser } from '../features/user/userSlice';
 
 const schema = yup.object({
@@ -17,15 +18,14 @@ export const Login = () => {
 
   const { register,handleSubmit, formState: {errors} } = useForm({resolver: yupResolver(schema)})
 
-  // const findUser = (data)=>{
-  //   const currentUser = usersList.map(user => {
-  //     return user
-  //   })
-  // }
-
-
-  const onSubmit = (data) =>{
-    dispatch(validateUser({email: data.email, password: data.password}))
+  const onSubmit = async (values) =>{
+    const {email, password} = values
+    const url = "http://localhost:4000/api/login"
+    const data = {email: email,password: password}
+    const config = {'content-type': 'application/json'}
+    
+    const response = await Axios.post(url, data, config)
+    console.log(response.data)
     navigate('/')
   }
 

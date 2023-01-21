@@ -3,9 +3,6 @@ const apiRoutes = express.Router()
 
 const dbo = require('../db/conn')
 
-/* This help converts the id from string
-   to ObjectId for the _id
-*/
 const ObjectId = require('mongodb').ObjectId
 
 // Get the list of all the records
@@ -14,6 +11,22 @@ apiRoutes.route('/api').get((req, res)=>{
     db_connect
     .collection('users')
     .find({})
+    .toArray((err)=>{
+        if(err) throw new Error("Couldn't connect")
+        res.send('Sever connected!')
+        // res.send('DB connected')
+    })
+})
+
+// Login
+apiRoutes.route('/api/login').post((req, res)=>{
+    const db_connect = dbo.getDb('social_media')
+    db_connect
+    .collection('users')
+    .find({
+        email: req.body.email,
+        password: req.body.password
+    })
     .toArray((err, result)=>{
         if(err) throw new Error("Couldn't connect")
         res.json(result)
@@ -45,6 +58,7 @@ apiRoutes.route('/api/register').post((req, response)=>{
     db_connect.collection('users').insertOne(myNewObj,
         (err, res)=>{
             if(err) throw err;
+            console.log('New user: ',myNewObj)
             response.json(res)
         }
     )
