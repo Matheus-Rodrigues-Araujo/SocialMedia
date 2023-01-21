@@ -2,9 +2,8 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'; 
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useState } from 'react';
+// import { useState } from 'react';
 import Axios from 'axios'
-// import {v4 as uuidv4} from 'uuid'
 
 const schema = yup.object({
   username: yup.string().required('Username is required!'),
@@ -15,37 +14,37 @@ const schema = yup.object({
 
 export const Register = () =>{
 
-  // const [form, setForm] = useState({
-  //   username: "",
-  //   email: "",
-  //   password: ""
-  // })
-
   const navigate = useNavigate()
 
   const {register, handleSubmit, formState:{errors}} = useForm({
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (formData) => {
     // data =  {...form}
-    const {username, email, password} = data
-  
-    await fetch("http://localhost:4000/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password
-      })
-    })
-    .catch((err)=>{
-      window.alert(err)
-    })
-    // setForm({username: "", email: "", password: ""})
+    const {username, email, password} = formData
+    const url = "http://localhost:4000/api/register"
+    const data = {username, email, password}
+    const config = {"content-type": "application/json"}
+    const response = await Axios.post(url, data, config)
+    response.data && console.log('user created')
+    // await fetch("http://localhost:4000/api/register", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     username: username,
+    //     email: email,
+    //     password: password
+    //   })
+    // })
+    // .catch((err)=>{
+    //   window.alert(err)
+    // })
+
+
+
     navigate('/login')
   }
 
