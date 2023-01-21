@@ -29,7 +29,8 @@ apiRoutes.route('/api/login').post((req, res)=>{
     })
     .toArray((err, result)=>{
         if(err) throw new Error("Couldn't connect")
-        res.json(result)
+        res.json(result[0])
+        // res.json(result)
         // res.send('DB connected')
     })
 })

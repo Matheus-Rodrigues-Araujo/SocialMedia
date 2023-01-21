@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-
+import {usersData as usersList} from '../fakeData'
 export const Home = () =>{
-  const auth = useSelector((state) => state.users.auth)
-  const usersList = useSelector((state)=>state.users.value)
+  const auth = useSelector((state) => state.user.auth)
   const WelcomeUser = ({user}) =>{
     return (
       <div className="greetings" >
@@ -24,6 +23,7 @@ export const Home = () =>{
   }
 
   const AllUsers = () =>{
+    // const usersList =
     return (
       <ul className="users-list" >
         {usersList.map((user, key)=>(

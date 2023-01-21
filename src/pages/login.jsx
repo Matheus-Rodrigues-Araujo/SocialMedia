@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup  from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useDispatch} from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import Axios from 'axios';
-import { validateUser } from '../features/user/userSlice';
+import { authenticateUser } from '../features/user/userSlice';
 
 const schema = yup.object({
   email: yup.string().required('Email is required!'),
@@ -14,18 +14,24 @@ const schema = yup.object({
 export const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  // const auth = useSelector(state => state.users.auth)
+  const userAuth = useSelector((state)=> state.user.auth)
 
   const { register,handleSubmit, formState: {errors} } = useForm({resolver: yupResolver(schema)})
 
   const onSubmit = async (values) =>{
+    console.log('initial value: ', userAuth)
     const {email, password} = values
     const url = "http://localhost:4000/api/login"
-    const data = {email: email,password: password}
+    const data = {email: email, password: password}
     const config = {'content-type': 'application/json'}
     
     const response = await Axios.post(url, data, config)
-    console.log(response.data)
+    .then(res=>{
+      console.log('Data from response: ', res.data)
+      dispatch(authenticateUser({username: res.data.username}))
+      console.log('Current value: ', userAuth)
+    })
+    
     navigate('/')
   }
 

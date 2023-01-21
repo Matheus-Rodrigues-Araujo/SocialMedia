@@ -1,6 +1,6 @@
 import {v4 as uuidv4} from "uuid"
 
-export const UsersData = [
+export const usersData = [
   {
     id: uuidv4(),
     username: "Bret",

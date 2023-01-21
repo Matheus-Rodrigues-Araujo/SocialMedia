@@ -3,16 +3,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { disconnectUser } from '../features/user/userSlice'
 
 export const Header = () =>{
-  const auth = useSelector(state => state.users.auth)
+  const auth = useSelector(state => state.user.auth)
   const dispatch = useDispatch()
-  
+  // console.log(auth)
   const UserAuth = ({logout}) =>{
       return(
         <ul className='links-list' >
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/post'>Post</Link></li>
           <div className='profile-icon'>
-            <div title={auth.username} >{auth.username[0]}</div>
+            <div title={auth.username} >{auth.username}</div>
           </div>
           <button onClick={logout} className='logout-btn'>Logout</button>
         </ul>
