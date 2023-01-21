@@ -24,9 +24,8 @@ export const Register = () =>{
   const postRequest = async (user)=>{
     await fetch('http://localhost:4000/api/register',{
       method: "POST",
-      mode: 'cors',
+      headers: {"Content-Type": "application/json"},
       body: JSON.stringify(user),
-      headers: {"Content-Type": "application/json"}
     })
     .catch((err)=> {
       console.log(err)
