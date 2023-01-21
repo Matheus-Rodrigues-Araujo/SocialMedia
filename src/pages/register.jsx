@@ -21,17 +21,17 @@ export const Register = () =>{
     password: ""
   })
 
-  const postRequest = async (user)=>{
-    await fetch('http://localhost:4000/api/register',{
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(user),
-    })
-    .catch((err)=> {
-      console.log(err)
-      return
-    })
-  }
+  // const postRequest = async (user)=>{
+  //   await fetch('http://localhost:4000/api/register',{
+  //     method: "POST",
+  //     headers: {"Content-Type": "application/json"},
+  //     body: JSON.stringify(user),
+  //   })
+  //   .catch((err)=> {
+  //     console.log(err)
+  //     return
+  //   })
+  // }
 
   const navigate = useNavigate()
 
@@ -39,9 +39,19 @@ export const Register = () =>{
     resolver: yupResolver(schema)
   })
 
-  const onSubmit= (data) => {
+  const onSubmit= async (data) => {
     data = {...form}
-    postRequest(data)
+    // postRequest(data)
+
+    await fetch("http://localhost:4000/api/register",{
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    })
+    .catch((err)=>{
+      window.alert(err)
+    })
+
     navigate('/login')
   }
 
