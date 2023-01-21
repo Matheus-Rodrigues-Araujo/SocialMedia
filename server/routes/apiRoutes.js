@@ -35,7 +35,7 @@ recordRoutes.route('/api/login').get((req, res)=>{
 })
 
 // Create a new record
-recordRoutes.route('/api/register').get((req, response)=>{
+recordRoutes.route('/api/register').post((req, response)=>{
     let db_connect = dbo.get()
     let myNewObj = {
         username: req.body.username,
