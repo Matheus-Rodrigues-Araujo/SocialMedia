@@ -57,7 +57,7 @@ apiRoutes.route('/update/:id').put((req, response)=>{
 
     let newValues = {
         $set:{
-            username: req.body.name,
+            username: req.body.username,
             email: req.body.email,
         }
     }
