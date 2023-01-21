@@ -5,9 +5,8 @@ require("dotenv").config({path: "./config.env"})
 const cors = require('cors')
 app.use(cors())
 
-// const apiRoutes = require('./routes/apiRoutes')
-app.use("./routes/apiRoutes")
-
+const apiRoutes = require("./routes/apiRoutes")
+express.use(apiRoutes)
 const dbo = require("./db/conn")
 
 app.listen(PORT, ()=>{

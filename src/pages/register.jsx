@@ -31,7 +31,7 @@ export const Register = () =>{
     // data =  {...form}
     const {username, email, password} = data
   
-    await fetch("http://localhost:4000/register", {
+    await fetch("http://localhost:4000/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
