@@ -15,6 +15,12 @@ const schema = yup.object({
 
 export const Register = () =>{
 
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+
   const postRequest = async (user)=>{
     await fetch('http://localhost:4000/api/register',{
       method: "POST",
@@ -40,6 +46,12 @@ export const Register = () =>{
     navigate('/login')
   }
 
+  const updateForm = (value)=>{
+    return setForm((prev)=>{
+      return {...prev, ...value}
+    })
+  }
+
   return(
     <section className="conteiner">
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
@@ -52,8 +64,9 @@ export const Register = () =>{
             <input 
             type='text' 
             placeholder="...Username" 
-            {...register('username')}  
-            // onChange={(e)=> setForm(updateForm({"username": e.target.value}))}
+            {...register('username')}
+            value={form.username}  
+            onChange={(e)=> updateForm({"username": e.target.value})}
             />
             {errors.username?.message ? <p className='error-msg' >{errors.username?.message}</p>: <></>}
           </label>
@@ -64,7 +77,8 @@ export const Register = () =>{
             type='text' 
             placeholder="...Email" 
             {...register('email')}
-            // onChange={(e)=> setForm(updateForm({"email": e.target.value}))}
+            value={form.email}  
+            onChange={(e)=> updateForm({"email": e.target.value})}
             />
             {errors.email?.message ? <p className='error-msg' >{errors.email?.message}</p>: <></>}
           </label>
@@ -75,7 +89,8 @@ export const Register = () =>{
             type='password'
             placeholder="...Password"  
             {...register('password')}
-            // onChange={(e)=> setForm(updateForm({"password": e.target.value}))}
+            value={form.password}  
+            onChange={(e)=> updateForm({"password": e.target.value})}
             />
             {errors.password?.message ? <p className='error-msg' >{errors.password?.message}</p>: <></>}
           </label>

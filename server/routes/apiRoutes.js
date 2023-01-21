@@ -52,7 +52,7 @@ recordRoutes.route('/api/register').get((req, response)=>{
 })
 
 // Update a record
-recordRoutes.route('/api/user/update',(req, response)=>{
+recordRoutes.route('/update/:id').put((req, response)=>{
     let db_connect = dbo.getDb()
     let myQuery = {_id: ObjectId(req.params.id)}
 
@@ -72,7 +72,7 @@ recordRoutes.route('/api/user/update',(req, response)=>{
 
 
 // Delete a record
-recordRoutes.route('/api/user/delete',(req, response)=>{
+recordRoutes.route('/delete/:id').delete((req, response)=>{
     let db_connect = dbo.getDb()
     let myQuery = {_id: ObjectId(req.params.id)}
     db_connect
