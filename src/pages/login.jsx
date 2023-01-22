@@ -14,7 +14,7 @@ const schema = yup.object({
 export const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const userAuth = useSelector((state)=> state.user.auth)
+  const userAuth = useSelector(state=> state.user.auth)
 
   const { register,handleSubmit, formState: {errors} } = useForm({resolver: yupResolver(schema)})
 
@@ -28,7 +28,7 @@ export const Login = () => {
     const response = await Axios.post(url, data, config)
     .then(res=>{
       console.log('Data from response: ', res.data)
-      dispatch(authenticateUser({username: res.data.username}))
+      dispatch(()=> authenticateUser({username: res.data.username}))
       console.log('Current value: ', userAuth)
     })
     
