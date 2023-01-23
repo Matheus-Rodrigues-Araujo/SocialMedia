@@ -58,3 +58,14 @@
   color: white;
   background-color: var(--darkblue);
 }
+
+@media screen  and (max-width: 720px) {
+  .users-list{
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .users-list .user{
+    flex: 1;
+  }
+}

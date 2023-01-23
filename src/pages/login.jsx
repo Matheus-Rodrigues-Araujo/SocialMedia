@@ -14,25 +14,26 @@ const schema = yup.object({
 export const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const userAuth = useSelector(state=> state.user.auth)
 
   const { register,handleSubmit, formState: {errors} } = useForm({resolver: yupResolver(schema)})
 
-  const onSubmit = async (values) =>{
-    console.log('initial value: ', userAuth)
-    const {email, password} = values
+  const onSubmit = async (formValues) =>{
+    const {email, password} = formValues
     const url = "http://localhost:4000/api/login"
     const data = {email: email, password: password}
     const config = {'content-type': 'application/json'}
     
-    const response = await Axios.post(url, data, config)
+    await Axios.post(url, data, config)
     .then(res=>{
-      console.log('Data from response: ', res.data)
-      dispatch(()=> authenticateUser({username: res.data.username}))
-      console.log('Current value: ', userAuth)
+      dispatch(
+        authenticateUser(res.data)
+      )
+    }).then(()=>navigate('/'))
+    .catch(error =>{
+      console.log(error)
     })
     
-    navigate('/')
+    // navigate('/')
   }
 
   return(
