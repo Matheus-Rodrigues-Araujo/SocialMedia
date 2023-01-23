@@ -6,20 +6,8 @@ import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Post } from "./pages/post";
-import Axios from 'axios'
 
 function App() {
-  
-  const serverConnection = async () =>{
-    const url = 'http://localhost:4000/api';
-    const config= {'content-type': 'application/json'}
-    const response = await Axios.get(url, config)
-    console.log(response.data)
-  }
-  
-  serverConnection()
-  
-
   return (
     <div className="App">
       <Router>

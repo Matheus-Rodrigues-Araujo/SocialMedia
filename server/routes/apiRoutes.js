@@ -11,10 +11,9 @@ apiRoutes.route('/api').get((req, res)=>{
     db_connect
     .collection('users')
     .find({})
-    .toArray((err)=>{
+    .toArray((err, result)=>{
         if(err) throw new Error("Couldn't connect")
-        res.send('Sever connected!')
-        // res.send('DB connected')
+        res.json(result)
     })
 })
 

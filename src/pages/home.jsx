@@ -1,9 +1,23 @@
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
+import Axios from "axios"
+import { storeUsers } from "../features/user/userSlice"
 import {usersData as usersList} from '../fakeData'
+import { useEffect, useState } from "react"
 export const Home = () =>{
   const auth = useSelector((state) => state.user.auth)
   const isLogged = useSelector((state)=> state.user.isLogged)
+  const [usersList, setUsersList] = useState([])
+  const dispatch = useDispatch()
+
+  useEffect(()=> {console.log(usersList)},[])
+  const serverConnection = async () =>{
+    const url = 'http://localhost:4000/api';
+    const config= {'content-type': 'application/json'}
+    await Axios.get(url, config).then((res)=> setUsersList(res.data))
+  }
+  
+  serverConnection()
   
   const WelcomeUser = ({user}) =>{
     return (
@@ -28,12 +42,8 @@ export const Home = () =>{
     // const usersList =
     return (
       <ul className="users-list" >
-        {usersList.map((user, key)=>(
-          <li className="user" key={key}>
-            <p>Username: {user.username}</p>
-            <p>Email: {user.email}</p>
-          </li>)
-        )}
+        {/* {console.log(usersList)} */}
+        {/* {usersList.map((e, key)=> <li key={key}>{e.username}</li>)} */}
       </ul>
     )
   }
