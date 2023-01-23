@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import {usersData as usersList} from '../fakeData'
 export const Home = () =>{
   const auth = useSelector((state) => state.user.auth)
+  const isLogged = useSelector((state)=> state.user.isLogged)
+  
   const WelcomeUser = ({user}) =>{
     return (
       <div className="greetings" >
@@ -48,7 +50,7 @@ export const Home = () =>{
 
   return(
     <div className="home">
-      {auth ? <MainContent /> : <UserNotLoggedIn/>}
+      {auth && isLogged ? <MainContent /> : <UserNotLoggedIn/>}
     </div>
   )
 }
