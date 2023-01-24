@@ -20,7 +20,7 @@ export const userSlice = createSlice({
       }},
       
       storeUsers: (state, action) =>{
-        state.usersList.push(action.payload)
+        state.usersList = [...action.payload]
       }
     }
 )

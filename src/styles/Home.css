@@ -53,11 +53,17 @@
 }
 
 .users-list .user{
-  /* width: 50%; */
   font-size: .7em;
-  border: 5px solid rgb(19, 243, 94);
+  text-align: left;
+  border: 5px solid rgb(243, 19, 183);
+  /* border: 5px solid rgb(19, 243, 94); */
   color: white;
   background-color: var(--darkblue);
+}
+
+.user .username{
+  color: var(--cyanblue);
+  font-weight: 700;
 }
 
 @media screen  and (max-width: 720px) {

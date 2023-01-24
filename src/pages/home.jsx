@@ -1,23 +1,39 @@
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import Axios from "axios"
-import { storeUsers } from "../features/user/userSlice"
-import {usersData as usersList} from '../fakeData'
 import { useEffect, useState } from "react"
 export const Home = () =>{
   const auth = useSelector((state) => state.user.auth)
   const isLogged = useSelector((state)=> state.user.isLogged)
   const [usersList, setUsersList] = useState([])
-  const dispatch = useDispatch()
 
-  useEffect(()=> {console.log(usersList)},[])
-  const serverConnection = async () =>{
+  const serverConnection = () =>{
     const url = 'http://localhost:4000/api';
     const config= {'content-type': 'application/json'}
-    await Axios.get(url, config).then((res)=> setUsersList(res.data))
+    Axios.get(url, config).then(res => {
+      setUsersList(res.data)
+    })
   }
   
-  serverConnection()
+  function AllUsers(){
+    const filteredUsers = usersList.filter(user => user._id !== auth._id)
+    
+    return (
+      <ul className="users-list" >
+        {filteredUsers.map((e, key)=> (
+          <li className='user' key={key}>
+            <p className="username">@{e.username}</p>
+            <p>Email: {e.email}</p>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  useEffect(()=>{
+    serverConnection()
+  }, [])
+
   
   const WelcomeUser = ({user}) =>{
     return (
@@ -38,16 +54,6 @@ export const Home = () =>{
     )
   }
 
-  const AllUsers = () =>{
-    // const usersList =
-    return (
-      <ul className="users-list" >
-        {/* {console.log(usersList)} */}
-        {/* {usersList.map((e, key)=> <li key={key}>{e.username}</li>)} */}
-      </ul>
-    )
-  }
-
   const MainContent = () =>{
     return(
       <>
@@ -60,7 +66,7 @@ export const Home = () =>{
 
   return(
     <div className="home">
-      {auth && isLogged ? <MainContent /> : <UserNotLoggedIn/>}
+      {isLogged ? <MainContent /> : <UserNotLoggedIn/>}
     </div>
   )
 }
