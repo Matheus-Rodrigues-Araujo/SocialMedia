@@ -1,35 +1,41 @@
-/* header{
-  margin-bottom: 10px;
-} */
-.navbar,
-.links-list {
+.navbar{
   display: flex;
+  flex-flow: column wrap;
+  gap: 2em;
 }
 
 .navbar {
-  justify-content: space-between;
-  padding: 15px;
+  min-height: 100vh;
+  padding: 15px 0px;
   background-color: var(--darkblue);
 }
 
 .navbar a {
+  margin-inline: auto;
   color: white;
-  font-weight: 700;
   text-decoration: none;
-  font-size: 1rem;
 }
 
-.navbar, .links-list{
-  align-items: center;
+.logo{
+  padding: 0px;
+  margin-block: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 
 .links-list{
+  display: flex;
+  flex-flow: column wrap;
   gap: 1.2rem;
+  text-align: center;
+  font-size: 1.2rem;
 }
 .links-list li{
   list-style: none;
 }
+
+
 
 .links-list a:hover {
   color: rgb(0, 183, 255);
@@ -40,7 +46,9 @@
   color: white;
   font-weight: 700;
   padding: 10px;
-  font-size: 1rem;
+  font-size: .9rem;
+  width: 50%;
+  margin: 0px auto;
   border: none;
   border-radius: .5em;
   cursor: pointer;
@@ -53,8 +61,8 @@
 }
 
 .profile-icon{
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 2em;
   border: none;
   display: flex;
@@ -63,6 +71,7 @@
   background-color: var(--green);
   transition: .3s ease-in;
   cursor: pointer;
+  margin-inline: auto;
   /* outline: 2px solid white; */
 }
 
@@ -72,6 +81,6 @@
 
 .profile-icon{
   color: white;
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: 700;
 }

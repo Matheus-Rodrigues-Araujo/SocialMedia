@@ -21,10 +21,10 @@
   /* background-color: rgba(15, 13, 22, 0.699); */
 }
 
-/* main{
+.main{
   display: grid;
-  min-height: 100vh;
-} */
+  grid-template-columns: 18% auto;
+}
 
 .displayUsers{
   margin-top: 30px;

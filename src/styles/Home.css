@@ -1,11 +1,10 @@
 .home{
   text-align: center;
-  /* width: 100%; */
+  min-width: 100vh;
 }
 
 .home h1{
   font-size: 2rem;
-  /* color: rgb(255, 255, 255); */
 }
 
 .home p{
@@ -41,6 +40,8 @@
 
 .notLogged{
   display: flex;
+  padding-top: 20px;
+  min-height: 100vh;
   flex-flow: column wrap;
   gap: 1em;
 }
@@ -56,7 +57,6 @@
   font-size: .7em;
   text-align: left;
   border: 5px solid rgb(243, 19, 183);
-  /* border: 5px solid rgb(19, 243, 94); */
   color: white;
   background-color: var(--darkblue);
 }
@@ -66,7 +66,7 @@
   font-weight: 700;
 }
 
-@media screen  and (max-width: 720px) {
+/* @media screen  and (max-width: 720px) {
   .users-list{
     display: flex;
     flex-flow: row wrap;
@@ -75,4 +75,4 @@
   .users-list .user{
     flex: 1;
   }
-}
+} */

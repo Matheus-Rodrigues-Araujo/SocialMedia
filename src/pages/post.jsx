@@ -2,14 +2,15 @@
 import { useSelector } from "react-redux"
 
 export const Post = ()=>{
-    const auth = useSelector((state)=> state.users.auth)
-    // const navigate = useNavigate()
+    const auth = useSelector((state)=> state.user.auth)
+    
     const style ={
         color: 'red',
         fontSize: '3rem',
         fontWeight: '700',
         textAlign: 'center'
     }
+    
     if(!auth){
         return(
             <div style={style}>
