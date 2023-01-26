@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { Header } from "./components/header";
 import { Home } from "./pages/home";
@@ -9,11 +9,12 @@ import { Post } from "./pages/post";
 import { NotFound } from "./pages/notFound";
 
 function App() {
+  const isLogged = useSelector(state => state.user.isLogged)
   return (
     <div className="App">
       <Router>
-        <main className="main">
-          <Header/>
+        <main className="main" style={isLogged ? {display: 'grid'}: {display: 'block'}}>
+          {isLogged && <Header />}
             <Routes>
               <Route path='/' element={<Home />}/>
               <Route path='/register' element={<Register />}/>
