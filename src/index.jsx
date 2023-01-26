@@ -11,6 +11,7 @@ import './styles/Login.css'
 import "./styles/Register.css"
 import './styles/Sidebar.css'
 import './styles/Post.css'
+import './styles/NotFound.css'
 
 
 const root = ReactDOM.createRoot(

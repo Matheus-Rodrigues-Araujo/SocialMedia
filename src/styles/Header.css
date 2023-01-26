@@ -7,18 +7,28 @@
 .navbar {
   min-height: 100vh;
   padding: 15px 0px;
-  background-color: var(--darkblue);
+  background-color: black;
 }
 
-.navbar a {
-  margin-inline: auto;
+.logo-conteiner{
   color: white;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  gap: 10px;
+  margin: 0px auto;
+  justify-items: center;
+}
+
+.logo-conteiner svg{
+  width: 35px;
+  height: 35px;
 }
 
 .logo{
   padding: 0px;
-  margin-block: 10px;
+  color: white;
+  text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -28,59 +38,82 @@
   display: flex;
   flex-flow: column wrap;
   gap: 1.2rem;
+  align-items: center;
   text-align: center;
   font-size: 1.2rem;
 }
+
 .links-list li{
   list-style: none;
-}
-
-
-
-.links-list a:hover {
-  color: rgb(0, 183, 255);
-}
-
-.logout-btn{
-  background-color: rgb(197, 32, 32);
-  color: white;
-  font-weight: 700;
-  padding: 10px;
-  font-size: .9rem;
-  width: 50%;
-  margin: 0px auto;
-  border: none;
-  border-radius: .5em;
+  width: 90%;
+  border-radius: 1em;
   cursor: pointer;
-  transition: .3s ease-in-out;
-
-}
-
-.logout-btn:hover{
-  background-color: rgb(255, 0, 0);
-}
-
-.profile-icon{
-  width: 30px;
-  height: 30px;
-  border-radius: 2em;
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--green);
-  transition: .3s ease-in;
-  cursor: pointer;
-  margin-inline: auto;
-  /* outline: 2px solid white; */
+  transition: .4s ease-in-out;
 }
 
-.profile-icon:hover{
-  background-color: rgb(12, 194, 211);
-}
-
-.profile-icon{
+.links-list a{
   color: white;
-  font-size: 1em;
+  text-decoration: none;
+}
+
+.link-icon-conteiner{
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  padding: 5px;
+  width: 60%;
+  text-align: left;
+}
+
+.link-icon-conteiner svg{
+  width: 20px;
+  height: 20px;
+}
+
+.link-icon-conteiner a{
+  margin: 0px;
+}
+
+.link-icon-conteiner svg{
+  color: var(--lightblue);
+}
+
+.links-list li:hover{
+  background-color: var(--lightgrey);
+}
+
+
+li:hover .logout-conteiner svg{
+  color: rgb(255, 0, 0);
   font-weight: 700;
+}
+
+li:hover .logout-conteiner .logout-btn{
+  color: rgb(255, 0, 0);
+}
+
+.logout-btn{
+  color: white;
+  font-size: 1.2rem;
+  padding: 3.5px;
+  width: 50%;
+  border: none;
+  border-radius: .5em;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.profile-conteiner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.icon{
+  border-radius: 2em;
+  background-color: var(--lightblue);
 }

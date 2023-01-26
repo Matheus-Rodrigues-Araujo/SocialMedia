@@ -2,7 +2,17 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { disconnectUser } from '../features/user/userSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { icon} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { 
+  faHome, 
+  faHashtag, 
+  faComment, 
+  faPen, 
+  faTools, 
+  faMoon,
+  faDoorOpen,
+  faUser,
+  faUserFriends
+} from '@fortawesome/free-solid-svg-icons'
 
 export const Header = () =>{
   const auth = useSelector(state => state.user.auth)
@@ -12,14 +22,54 @@ export const Header = () =>{
       return(
         <ul className='links-list auth' >
           <li>
-            <FontAwesomeIcon icon="fa-solid fa-house" />
-            <Link to='/'>Home</Link>
-            </li>
-          <li><Link to='/post'>Post</Link></li>
-          <div className='profile-icon'>
-            <div title={auth.username} >{auth.username[0]}</div>
-          </div>
-          <button onClick={logout} className='logout-btn'>Logout</button>
+            <div className='link-icon-conteiner'>
+              <FontAwesomeIcon icon={faHome} />
+              <Link to='/'>Home</Link>
+            </div>
+          </li>
+          <li>
+            <div className="link-icon-conteiner">
+              <FontAwesomeIcon icon={faHashtag}/>
+              <Link to='/explore'>Explore</Link>
+            </div>
+          </li>
+          <li>
+            <div className="link-icon-conteiner">
+              <FontAwesomeIcon icon={faPen}/>
+              <Link to='/post'>Post</Link>
+            </div>
+          </li>
+          <li>
+            <div className='link-icon-conteiner'>
+              <FontAwesomeIcon icon={faUserFriends} />
+              <Link to='/friends'>Friends</Link>
+            </div>
+          </li>
+          <li>
+            <div className="link-icon-conteiner">
+              <FontAwesomeIcon icon={faTools}/>
+              <Link to='/settings'>Settings</Link>
+            </div>
+          </li>
+          <li>
+            <div className="link-icon-conteiner">
+              <FontAwesomeIcon icon={faMoon}/>
+              <Link to='/theme'>Theme</Link>
+            </div>
+          </li>
+
+          <li>
+            <div className='link-icon-conteiner'>
+              <FontAwesomeIcon icon={faUser} />
+              <Link to='/profile'>Profile</Link>
+            </div>
+          </li>
+          <li>
+            <div className='link-icon-conteiner logout-conteiner'>
+              <FontAwesomeIcon icon={faDoorOpen} />
+              <button onClick={logout} className='logout-btn'>Logout</button>
+            </div>
+          </li>
         </ul>
       )
     }
@@ -37,7 +87,10 @@ export const Header = () =>{
   return (
     <header className="header">
       <nav className='navbar'>
-        <Link to='/' className='logo'>Talk App</Link>
+        <div className='logo-conteiner' >
+          <FontAwesomeIcon icon={faComment} />
+          <Link to='/' className='logo'>Talk Now!</Link>
+        </div>
         {auth ? <UserAuth logout={()=> dispatch(disconnectUser())} /> : <UserNotAuth/>}
       </nav>
     </header>
