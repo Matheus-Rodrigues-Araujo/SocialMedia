@@ -56,7 +56,9 @@
 .users-list .user{
   font-size: .7em;
   text-align: left;
-  border: 5px solid rgb(243, 19, 183);
+  /* border: 5px solid rgb(243, 19, 183); */
+  border: none;
+  border-radius: 1em;
   color: white;
   background-color: var(--darkblue);
 }
