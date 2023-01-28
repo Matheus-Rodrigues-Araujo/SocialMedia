@@ -12,17 +12,17 @@ export const Home = () =>{
   const [usersList, setUsersList] = useState([])
   // const images = [img2, img3,img4]
 
-  const serverConnection = () =>{
-    const url = 'http://localhost:4000/api';
-    const config= {'content-type': 'application/json'}
-    Axios.get(url, config).then(res => {
-      setUsersList(res.data)
-    })
-  }
+  // const serverConnection = () =>{
+  //   const url = 'http://localhost:4000/api';
+  //   const config= {'content-type': 'application/json'}
+  //   Axios.get(url, config).then(res => {
+  //     setUsersList(res.data)
+  //   })
+  // }
 
-  useEffect(()=>{
-    serverConnection()
-  }, [])
+  // useEffect(()=>{
+  //   serverConnection()
+  // }, [])
 
   return(
     <div className="home">

@@ -1,0 +1,28 @@
+.welcome{
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    gap: 50px;
+    grid-auto-columns: 20% 60% 20%;
+    min-width: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.right-sidebar{
+    background-color: black;
+    list-style: none;
+    background-color: var(--darkblue);
+    width: 100%;
+
+}
+
+.right-sidebar .links-list{
+    /* width: 100%; */
+    position: fixed;
+    margin-inline: auto;
+}
+
+.right-sidebar a{
+    color: white;
+    text-decoration: none;
+}

@@ -1,14 +1,24 @@
+header{
+  background-color: var(--darkblue);
+  position: relative;
+}
 .navbar{
   display: flex;
   flex-flow: column wrap;
   gap: 2em;
+  width: 20%;
+  position: absolute;
 }
 
-.navbar {
+.navbar{
   min-height: 100vh;
   padding: 15px 0px;
-  background-color: black;
+  position: fixed;
+  /* background-color: black; */
+  background-color: var(--darkblue);
 }
+
+
 
 .logo-conteiner{
   color: white;
@@ -41,6 +51,8 @@
   align-items: center;
   text-align: center;
   font-size: 1.2rem;
+  background-color: var(--darkblue);
+
 }
 
 .links-list li{

@@ -6,7 +6,7 @@ import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Post } from "./pages/post";
 import { NotFound } from "./pages/notFound";
-import { WelcomeUser } from "./pages/welcome";
+import { Welcome } from "./pages/welcome";
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/register' element={<Register />}/>
-            <Route path='/welcome' element={<WelcomeUser />}/>
+            <Route path='/welcome' element={<Welcome />}/>
             <Route path='/post' element={<Post />}/>
             <Route path='*' element={<NotFound/>}/>
           </Routes>

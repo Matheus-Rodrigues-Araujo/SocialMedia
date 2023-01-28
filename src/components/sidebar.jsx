@@ -20,7 +20,7 @@ export const Sidebar = () =>{
   
   const UserAuth = ({logout}) =>{
       return(
-        <ul className='links-list auth' >
+        <ul className='links-list' >
           <li>
             <div className='link-icon-conteiner'>
               <FontAwesomeIcon icon={faHome} />
@@ -51,19 +51,7 @@ export const Sidebar = () =>{
               <Link to='/settings'>Settings</Link>
             </div>
           </li>
-          <li>
-            <div className="link-icon-conteiner">
-              <FontAwesomeIcon icon={faMoon}/>
-              <Link to='/theme'>Theme</Link>
-            </div>
-          </li>
 
-          <li>
-            <div className='link-icon-conteiner'>
-              <FontAwesomeIcon icon={faUser} />
-              <Link to='/profile'>Profile</Link>
-            </div>
-          </li>
           <li>
             <div className='link-icon-conteiner logout-conteiner'>
               <FontAwesomeIcon icon={faDoorOpen} />
