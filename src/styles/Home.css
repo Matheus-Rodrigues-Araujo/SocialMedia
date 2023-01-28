@@ -1,49 +1,55 @@
 .home{
-  text-align: center;
-  min-width: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  /* background-color: rgb(10, 201, 226); */
+  background-color: var(--darkblue);
 }
 
-.home h1{
-  font-size: 2rem;
+.home-content{
+  display: flex;
+  gap: 20px;
+  flex-flow: row wrap;
 }
 
-.home p{
-  font-size: 1.2rem;
+.gallery .first-img{
+  width: auto;
+  height: 450px;
+  border-radius: 1em;
 }
+
+.gallery h3{
+  font-size: 2em;
+  color: var(--green);
+}
+
+.gallery p{
+  color: white;
+  font-size: 2em;
+  font-weight: 700;
+}
+
 
 .greetings  p{
   font-size: 2.3rem;
   font-weight: 700;
-  color: rgb(104, 98, 98);
+  color: var(--grey);
 }
 
 .link-btn{
-  background-color: rgb(8, 123, 158);
+  background-color: var(--btn-color);
   color: white;
   cursor: pointer;
   font-weight: 700;
-  font-size: 1.2rem;
   transition: .4s ease-in-out;
   text-decoration: none;
-  width: 20%;
-  padding: 15px;
-  border: none;
-  border-radius: 1.2em;
-  margin-inline: auto;
 }
-
 
 .link-btn:hover{
   background-color: rgb(9, 202, 35);
   outline: none;
-}
-
-.notLogged{
-  display: flex;
-  padding-top: 20px;
-  min-height: 100vh;
-  flex-flow: column wrap;
-  gap: 1em;
 }
 
 .users-list{
@@ -56,7 +62,6 @@
 .users-list .user{
   font-size: .7em;
   text-align: left;
-  /* border: 5px solid rgb(243, 19, 183); */
   border: none;
   border-radius: 1em;
   color: white;
@@ -67,14 +72,3 @@
   color: var(--cyanblue);
   font-weight: 700;
 }
-
-/* @media screen  and (max-width: 720px) {
-  .users-list{
-    display: flex;
-    flex-flow: row wrap;
-  }
-
-  .users-list .user{
-    flex: 1;
-  }
-} */

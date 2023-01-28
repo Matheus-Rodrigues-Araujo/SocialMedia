@@ -40,7 +40,7 @@ export const Login = () => {
     <section className="conteiner">
       <form className="form"
        onSubmit={handleSubmit(onSubmit)}>
-        <h1>Welcome</h1>
+        <h1>Sign in</h1>
         
         <div className="fields" >
           <label>

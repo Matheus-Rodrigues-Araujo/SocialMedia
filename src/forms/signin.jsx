@@ -2,11 +2,11 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup  from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useSelector, useDispatch} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import Axios from 'axios';
 import { authenticateUser } from '../features/user/userSlice';
 import { Logo } from '../components/logo';
-
+import { useState } from 'react';
 const schema = yup.object({
   email: yup.string().required('Email is required!'),
   password: yup.string().required('Password is required!')
@@ -15,7 +15,6 @@ const schema = yup.object({
 export const SignIn = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
   const { register,handleSubmit, formState: {errors} } = useForm({resolver: yupResolver(schema)})
 
   const onSubmit = async (formValues) =>{
@@ -29,27 +28,27 @@ export const SignIn = () => {
       dispatch(
         authenticateUser(res.data)
       )
-    }).then(()=>navigate('/welcome'))
+    }).then(()=> navigate('/welcome'))
     .catch(error =>{
       console.log(error)
     }) 
   }
 
   return(
-    <form className="form"
+    <form className="login-form"
       onSubmit={handleSubmit(onSubmit)}>
       <Logo />
-      <h1>Welcome</h1>
+      <h1>Sign in</h1>
       
       <div className="fields" >
         <label>
-          Email
+          {/* Email */}
           <input type='text' placeholder="...Email" {...register('email')}/>
           <p className='error-msg' >{errors.email?.message}</p>
         </label>
 
         <label>
-          Password
+          {/* Password */}
           <input type='password' placeholder="...Password" {...register('password')} />
           <p className='error-msg' >{errors.password?.message}</p>
         </label>

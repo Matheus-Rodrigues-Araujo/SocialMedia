@@ -1,58 +1,119 @@
-.sidebar{
+.navbar{
   display: flex;
   flex-flow: column wrap;
-  background-color: var(--darkblue);
-  /* width: 15%; */
-  height: 100%;
-  gap: 1em;
-  align-items: center;
-  color: white;
+  gap: 2em;
 }
 
-.sidebar h3{
+.navbar {
+  min-height: 100vh;
+  padding: 15px 0px;
   background-color: black;
-  width: 100%;
-  text-align: center;
 }
 
-.sidebar a {
+.logo-conteiner{
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  gap: 10px;
+  margin: 0px auto;
+  justify-items: center;
+}
+
+.logo-conteiner svg{
+  width: 35px;
+  height: 35px;
+}
+
+.logo{
+  padding: 0px;
+  color: white;
   text-decoration: none;
-  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+
+.links-list{
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1.2rem;
+  align-items: center;
+  text-align: center;
   font-size: 1.2rem;
-  font-weight: 700;
-  border-bottom: 2px solid white;
-  width: 100%;
-  text-align: center;
 }
 
-.sidebar a:hover {
-  color: var(--lightblue);
-}
-.sidebar button{
-  width: 100%;
-  background-color: transparent;
-  color: white;
-  border: none;
-  font-size: 1.3rem;
-  border-bottom: 2px solid white;
-  font-weight: 700;
-}
-
-.profile{
-  width: 65px;
-  height: 65px;
-  background-color: aqua;
-  border-radius: 2em;
-  border: 5px solid darkcyan;
-  transition: .4s ease-in-out;
-  text-align: center;
-  font-size: 1.8rem;
+.links-list li{
+  list-style: none;
+  width: 90%;
+  border-radius: 1em;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: .4s ease-in-out;
 }
 
-.profile:hover{
-  background-color: black;
-  border-color: rgb(10, 153, 209);
+.links-list a{
+  color: white;
+  text-decoration: none;
+}
+
+.link-icon-conteiner{
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  padding: 5px;
+  width: 60%;
+  text-align: left;
+}
+
+.link-icon-conteiner svg{
+  width: 20px;
+  height: 20px;
+}
+
+.link-icon-conteiner a{
+  margin: 0px;
+}
+
+.link-icon-conteiner svg{
+  color: var(--lightblue);
+}
+
+.links-list li:hover{
+  background-color: var(--lightgrey);
+}
+
+
+li:hover .logout-conteiner svg{
+  color: rgb(255, 0, 0);
+  font-weight: 700;
+}
+
+li:hover .logout-conteiner .logout-btn{
+  color: rgb(255, 0, 0);
+}
+
+.logout-btn{
+  color: white;
+  font-size: 1.2rem;
+  padding: 3.5px;
+  width: 50%;
+  border: none;
+  border-radius: .5em;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.profile-conteiner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.icon{
+  border-radius: 2em;
+  background-color: var(--lightblue);
 }

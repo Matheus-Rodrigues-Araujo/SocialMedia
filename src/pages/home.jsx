@@ -1,11 +1,16 @@
 import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
 import Axios from "axios"
 import { useEffect, useState } from "react"
-import { WelcomeUser } from "./welcome"
+import { SignIn } from "../forms/signin"
+import img1 from '../images/img1.jpg'
+import img2 from '../images/img2.jpg'
+import img3 from '../images/img3.jpg'
+import img4 from '../images/img4.jpg'
+
 export const Home = () =>{
-  const isLogged = useSelector((state)=> state.user.isLogged)
+  // const isLogged = useSelector((state)=> state.user.isLogged)
   const [usersList, setUsersList] = useState([])
+  // const images = [img2, img3,img4]
 
   const serverConnection = () =>{
     const url = 'http://localhost:4000/api';
@@ -15,24 +20,21 @@ export const Home = () =>{
     })
   }
 
-  const UserNotLoggedIn = () =>{
-    return (
-      <div className="notLogged">
-        <div className="message">
-          <h1>Must be Logged to access the App!</h1>
-        <Link to='/login' className="link-btn">Login</Link>
-        </div>
-      </div>
-    )
-  }
-
   useEffect(()=>{
     serverConnection()
   }, [])
 
   return(
     <div className="home">
-      {isLogged ? <WelcomeUser usersList={usersList} /> : <UserNotLoggedIn/>}
+      <div className="home-content">
+        <div className="gallery">
+          <h3>The App of the moment !</h3>
+          <p>Sign in to see what's everyone is talking!</p>
+          <img className="first-img" src={img1} alt="something" />
+        </div>
+
+        <SignIn />
+      </div>
     </div>
   )
 }

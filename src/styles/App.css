@@ -13,19 +13,16 @@
   --green: rgb(16, 234, 16);
   --cyanblue: rgb(0 255 196);
   --lightgrey: #343131;
+  --btn-color: rgb(8, 123, 158);
+  --grey: rgb(104, 98, 98);
 }
 
 
 .App{
   overflow-y: hidden;
   min-height: 100vh;
-  /* background-color: rgba(15, 13, 22, 0.699); */
 }
 
-.main{
-  display: grid;
-  grid-template-columns: 18% auto;
-}
 
 .displayUsers{
   margin-top: 30px;
@@ -33,7 +30,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   font-size: .5rem;
-  /* margin-inline: auto; */
   width: 100%;
 }
 

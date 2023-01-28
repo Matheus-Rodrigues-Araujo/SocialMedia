@@ -6,8 +6,7 @@ import {store} from './config/store'
 
 import "./styles/App.css"
 import './styles/Home.css'
-import "./styles/Header.css"
-import './styles/Login.css'
+import './styles/SignIn.css'
 import "./styles/Register.css"
 import './styles/Sidebar.css'
 import './styles/Post.css'
