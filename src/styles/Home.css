@@ -2,32 +2,37 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-content: center;
+  align-content: flex-start;
   min-height: 100vh;
-  /* background-color: rgb(10, 201, 226); */
+  padding: 40px;
   background-color: var(--darkblue);
 }
 
 .home-content{
-  display: flex;
-  gap: 20px;
-  flex-flow: row wrap;
+  /* display: flex; */
+  /* gap: 20px; */
+  /* flex-flow: row wrap; */
+  display: grid;
+  grid-template-columns: auto 450px;
+  justify-content: center;
+  grid-auto-rows: minmax(350px, auto);
+  align-content: center;
 }
 
 .gallery .first-img{
-  width: auto;
-  height: 450px;
+  width: 90%;
+  height: auto;
   border-radius: 1em;
 }
 
 .gallery h3{
-  font-size: 2em;
+  font-size: 1.4rem;
   color: var(--green);
 }
 
 .gallery p{
   color: white;
-  font-size: 2em;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 

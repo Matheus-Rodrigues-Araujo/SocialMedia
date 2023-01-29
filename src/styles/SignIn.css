@@ -1,15 +1,16 @@
 
 .login-form{
-  /* background-color: rgb(20, 34, 34); */
   background-color: var(--darkblue);
   color: white;
   display: flex;
   flex-flow: column wrap;
   padding: 0px 10px;
   gap: 1em;
+  margin: auto 0;
+  max-height: auto;
   justify-content: center;
-  border-radius:.7em;
-  outline: 5px outset var(--green);
+  border-radius:.1em;
+  outline: 3px outset var(--green);
 }
 
 .login-form > h1{
@@ -23,6 +24,11 @@
   color: rgb(68, 55, 55);
 }
 
+.login-form .logo-conteiner{
+  width: auto;
+  margin-block: 10px;
+}
+
 label{
   display: grid;
   color: white;
@@ -33,7 +39,7 @@ label{
   width: 100%;
   padding: 15px;
   border: none;
-  border-radius: 1.5em;
+  border-radius: .1em;
 }
 
 .fields .btn-styled{
@@ -62,6 +68,7 @@ label{
 .error-msg{
   color: red;
   font-size: .9rem;
+  font-weight: 700;
 }
 
 .forgot-password{
@@ -69,10 +76,14 @@ label{
   text-decoration: none;
   text-align: center;
   display: block;
+  margin: 10px;
 }
 
 .create-account-link {
   color: white;
+  text-align: center;
+  margin: 10px;
+
 }
 
 .create-account-link a{
