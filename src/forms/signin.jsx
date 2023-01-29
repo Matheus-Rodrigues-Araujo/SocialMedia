@@ -58,10 +58,12 @@ export const SignIn = () => {
         </div>
       </form>
       <div className='help-conteiner' >
-          <Link to="/register" className='forgot-password' >Forgot password?</Link>
-      </div>
-      <div className='help-conteiner' >
+        <div>
+            <Link to="/register" className='forgot-password' >Forgot password?</Link>
+          </div>
+        <div>
           <p className='create-account-link' >Don't have an account? <Link to="/register"> Create account</Link></p>
+        </div>
       </div>
   </div>
   )

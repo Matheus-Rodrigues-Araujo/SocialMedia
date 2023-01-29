@@ -1,17 +1,16 @@
 .login-conteiner{
   /* height: 100%; */
-  gap: 1em;
-  padding: 10px;
+  gap: 1.5em;
+  padding: 1em;
   display: grid;
 }
 
 .login-form{
   background-color: var(--darkblue);
   color: white;
+  /* gap: .2rem; */
   display: flex;
   flex-flow: column wrap;
-  padding: 0px 10px;
-  gap: 2em;
   padding: 10px;
   margin: auto 0;
   max-height: auto;
@@ -33,7 +32,7 @@
 
 .login-form .logo-conteiner{
   width: auto;
-  margin-block: 10px;
+  margin-block: 20px;
 }
 
 label{
@@ -98,11 +97,18 @@ label{
 }
 
 .help-conteiner{
-  outline: 3px outset var(--green);
-  font-size: 1.2rem;
+  /* outline: 3px outset var(--green); */
+  font-size: 1rem;
   font-weight: 700;
   display: flex;
   flex-flow: column wrap;
   /* align-content: center; */
+  gap: 1.5em;
+  margin-bottom:10px;
   justify-content: center;
+}
+
+.help-conteiner div{
+  outline: 3px outset var(--green);
+
 }
