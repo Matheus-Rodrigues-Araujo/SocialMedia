@@ -35,28 +35,34 @@ export const SignIn = () => {
   }
 
   return(
-    <form className="login-form"
-      onSubmit={handleSubmit(onSubmit)}>
-      <Logo />
-      <h1>Sign in</h1>
-      
-      <div className="fields" >
-        <label>
-          {/* Email */}
-          <input type='text' placeholder="...Email" {...register('email')}/>
-          <p className='error-msg' >{errors.email?.message}</p>
-        </label>
+    <div className='login-conteiner'>
+      <form className="login-form"
+        onSubmit={handleSubmit(onSubmit)}>
+        <Logo />
+        <h1>Sign in</h1>
+        
+        <div className="fields" >
+          <label>
+            {/* Email */}
+            <input type='text' placeholder="...Email" {...register('email')}/>
+            <p className='error-msg' >{errors.email?.message}</p>
+          </label>
 
-        <label>
-          {/* Password */}
-          <input type='password' placeholder="...Password" {...register('password')} />
-          <p className='error-msg' >{errors.password?.message}</p>
-        </label>
+          <label>
+            {/* Password */}
+            <input type='password' placeholder="...Password" {...register('password')} />
+            <p className='error-msg' >{errors.password?.message}</p>
+          </label>
 
-        <input type='submit' className="btn-styled" value='Login' />
-        <Link to="/register" className='forgot-password' >Forgot password?</Link>
-        <p className='create-account-link' >Don't have an account? <Link to="/register"> Create account</Link></p>
+          <input type='submit' className="btn-styled" value='Login' />
+        </div>
+      </form>
+      <div className='help-conteiner' >
+          <Link to="/register" className='forgot-password' >Forgot password?</Link>
       </div>
-    </form>
+      <div className='help-conteiner' >
+          <p className='create-account-link' >Don't have an account? <Link to="/register"> Create account</Link></p>
+      </div>
+  </div>
   )
 }

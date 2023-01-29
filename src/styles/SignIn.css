@@ -1,3 +1,9 @@
+.login-conteiner{
+  /* height: 100%; */
+  gap: 1em;
+  padding: 10px;
+  display: grid;
+}
 
 .login-form{
   background-color: var(--darkblue);
@@ -5,7 +11,8 @@
   display: flex;
   flex-flow: column wrap;
   padding: 0px 10px;
-  gap: 1em;
+  gap: 2em;
+  padding: 10px;
   margin: auto 0;
   max-height: auto;
   justify-content: center;
@@ -88,4 +95,14 @@ label{
 
 .create-account-link a{
   color: var(--cyanblue);
+}
+
+.help-conteiner{
+  outline: 3px outset var(--green);
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  flex-flow: column wrap;
+  /* align-content: center; */
+  justify-content: center;
 }
