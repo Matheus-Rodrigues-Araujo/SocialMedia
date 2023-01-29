@@ -28,7 +28,7 @@ export const SignIn = () => {
       dispatch(
         authenticateUser(res.data)
       )
-    }).then(()=> navigate('/welcome'))
+    }).then(()=> navigate('/user/welcome'))
     .catch(error =>{
       console.log(error)
     }) 

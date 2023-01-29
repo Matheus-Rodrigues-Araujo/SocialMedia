@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { disconnectUser } from '../features/user/userSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,6 +16,8 @@ import {
 
 export const Sidebar = () =>{
   const auth = useSelector(state => state.user.auth)
+  const isLogged = useSelector(state => state.user.isLogged)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   
   const UserAuth = ({logout}) =>{
@@ -24,31 +26,31 @@ export const Sidebar = () =>{
           <li>
             <div className='link-icon-conteiner'>
               <FontAwesomeIcon icon={faHome} />
-              <Link to='/'>Home</Link>
+              <Link to='/user/welcome'>Home</Link>
             </div>
           </li>
           <li>
             <div className="link-icon-conteiner">
               <FontAwesomeIcon icon={faHashtag}/>
-              <Link to='/explore'>Explore</Link>
+              <Link to='/user/explore'>Explore</Link>
             </div>
           </li>
           <li>
             <div className="link-icon-conteiner">
               <FontAwesomeIcon icon={faPen}/>
-              <Link to='/post'>Post</Link>
+              <Link to='/user/post'>Post</Link>
             </div>
           </li>
           <li>
             <div className='link-icon-conteiner'>
               <FontAwesomeIcon icon={faUserFriends} />
-              <Link to='/friends'>Friends</Link>
+              <Link to='/user/friends'>Friends</Link>
             </div>
           </li>
           <li>
             <div className="link-icon-conteiner">
               <FontAwesomeIcon icon={faTools}/>
-              <Link to='/settings'>Settings</Link>
+              <Link to='/user/settings'>Settings</Link>
             </div>
           </li>
 
@@ -62,24 +64,17 @@ export const Sidebar = () =>{
       )
     }
   
-  const UserNotAuth = () =>{
-    return(
-      <ul className='links-list'>
-        <Link to='/' >Home</Link>
-        <Link to='/register' >Register</Link>
-        <Link to='/login' >Login</Link>
-      </ul>
-    )
-  }
-
   return (
     <header className="header">
       <nav className='navbar'>
         <div className='logo-conteiner' >
           <FontAwesomeIcon icon={faComment} />
-          <Link to='/' className='logo'>Talk Now!</Link>
+          <Link to='/user/welcome' className='logo'>Talk Now!</Link>
         </div>
-        {auth ? <UserAuth logout={()=> dispatch(disconnectUser())} /> : <UserNotAuth/>}
+        <UserAuth logout={()=>{
+            dispatch(disconnectUser())
+            navigate('/')
+        }}/>
       </nav>
     </header>
   )
