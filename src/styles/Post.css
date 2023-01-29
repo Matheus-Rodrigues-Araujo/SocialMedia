@@ -5,16 +5,19 @@
     margin-block: 60px;
 }
 
+.post h3{
+color: var(--darkblue);
+}
+
 .post .fields .btn-styled{
     width: 50%;
-    margin: 0 auto;
+    margin: 20px auto;
     transition: .4s ease-in-out;
 }
 
-.post .fields textarea:hover{
-    outline: 5px solid rgb(8, 123, 158);
-}
 
 .post textarea{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    padding: 2px;
+    border: 3px outset var(--darkblue);
 }
