@@ -4,6 +4,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import {store} from './config/store'
 
+import "./styles/Main.css"
 import "./styles/App.css"
 import './styles/Home.css'
 import './styles/Welcome.css'

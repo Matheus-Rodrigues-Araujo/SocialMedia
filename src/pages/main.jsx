@@ -27,24 +27,6 @@ export const Main = () =>{
     <main className="main" >
       <Sidebar />
       <Outlet/>
-      
-      {/* <div className="right-sidebar" >
-        <ul className="links-list">
-          <li>
-            <div className='link-icon-conteiner'>
-              <FontAwesomeIcon icon={faUser} />
-              <Link to='/profile'>Profile</Link>
-            </div>
-          </li>
-
-          <li>
-            <div className="link-icon-conteiner">
-              <FontAwesomeIcon icon={faMoon}/>
-              <Link to='/theme'>Theme</Link>
-            </div>
-          </li>
-        </ul>
-      </div> */}
     </main>
   )
 }

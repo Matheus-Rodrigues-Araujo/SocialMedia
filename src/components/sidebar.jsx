@@ -20,62 +20,48 @@ export const Sidebar = () =>{
   const navigate = useNavigate()
   const dispatch = useDispatch()
   
-  const UserAuth = ({logout}) =>{
+  const SidebarLinks = ({logout}) =>{
       return(
-        <ul className='links-list' >
+        <ul className='links-items' >
           <li>
-            <div className='link-icon-conteiner'>
-              <FontAwesomeIcon icon={faHome} />
-              <Link to='/user/welcome'>Home</Link>
-            </div>
+            <FontAwesomeIcon icon={faHome} />
+            <Link to='/user/welcome'>Home</Link>
           </li>
           <li>
-            <div className="link-icon-conteiner">
               <FontAwesomeIcon icon={faHashtag}/>
-              <Link to='/user/explore'>Explore</Link>
-            </div>
+            <Link to='/user/explore'>Explore</Link>
           </li>
           <li>
-            <div className="link-icon-conteiner">
               <FontAwesomeIcon icon={faPen}/>
-              <Link to='/user/post'>Post</Link>
-            </div>
+            <Link to='/user/post'>Post</Link>
           </li>
           <li>
-            <div className='link-icon-conteiner'>
               <FontAwesomeIcon icon={faUserFriends} />
-              <Link to='/user/friends'>Friends</Link>
-            </div>
+            <Link to='/user/friends'>Friends</Link>
           </li>
           <li>
-            <div className="link-icon-conteiner">
               <FontAwesomeIcon icon={faTools}/>
-              <Link to='/user/settings'>Settings</Link>
-            </div>
+            <Link to='/user/settings' >Settings</Link>
           </li>
 
           <li>
-            <div className='link-icon-conteiner logout-conteiner'>
               <FontAwesomeIcon icon={faDoorOpen} />
               <button onClick={logout} className='logout-btn'>Logout</button>
-            </div>
           </li>
         </ul>
       )
     }
   
-  return (
-    <header className="header">
-      <nav className='navbar'>
-        <div className='logo-conteiner' >
-          <FontAwesomeIcon icon={faComment} />
-          <Link to='/user/welcome' className='logo'>Talk Now!</Link>
-        </div>
-        <UserAuth logout={()=>{
-            dispatch(disconnectUser())
-            navigate('/')
-        }}/>
-      </nav>
-    </header>
+return (
+  <div className='sidebar'>
+    <li className='logo-conteiner' >
+      <FontAwesomeIcon icon={faComment} />
+      <Link to='/user/welcome' className='logo-name'>Talk Now!</Link>
+    </li>
+    <SidebarLinks logout={()=>{
+      dispatch(disconnectUser())
+       navigate('/')
+    }}/>
+  </div>
   )
 }

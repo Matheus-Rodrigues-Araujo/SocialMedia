@@ -1,0 +1,20 @@
+.main{
+    display: flex;
+    grid-template-columns: repeat(2, 1.2fr 2fr);
+    /* min-height: 100vh; */
+}
+
+.main-content{
+    margin-left: 200px;
+    position: absolute;
+    min-height: 100vh;
+    font-size: 2rem;
+    padding: 2em;
+    text-align: justify;
+}
+
+@media screen and (max-width: 720px) {
+    .main-content{
+        margin-left: 150px;
+    }
+}

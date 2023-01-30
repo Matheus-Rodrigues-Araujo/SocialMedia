@@ -1,7 +1,7 @@
 export const Settings = ()=>{
   return(
-    <div className="configuration">
-      Configuration
+    <div className="main-content">
+      Settings
     </div>
   )
 }

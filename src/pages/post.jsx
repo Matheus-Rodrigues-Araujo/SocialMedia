@@ -21,7 +21,7 @@ export const Post = ()=>{
     }
 
     return (
-        <form className="form post">
+        <form className="main-content form post">
             <div className="fields">
                 <label>
                     <h3>Your post</h3>

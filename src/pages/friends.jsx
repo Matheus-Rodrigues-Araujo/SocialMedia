@@ -1,5 +1,5 @@
 export const Friends = () =>{
     return (
-        <div>Friends</div>
+        <div className="main-content">Friends</div>
     )
 }
