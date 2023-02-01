@@ -4,7 +4,7 @@
   justify-content: center;
   align-content: flex-start;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 50px;
   background-color: var(--darkblue);
 }
 
@@ -12,10 +12,12 @@
   padding: 1em;
   gap: 5px;
   display: grid;
-  grid-template-columns: auto 450px;
+  /* grid-template-columns: auto 450px; */
   justify-content: center;
-  grid-auto-rows: minmax(350px, 450px);
+  /* grid-auto-rows: minmax(350px, 450px); */
   align-content: center;
+  font-size: 2rem;
+
 }
 
 .home-greetings{
@@ -28,14 +30,15 @@
   border-radius: 1em;
 }
 
-.home-greetings h3{
-  font-size: 1.4rem;
+.home-greetings h2{
+  font-size: 3rem;
+
   color: var(--green);
 }
 
 .home-greetings p{
   color: white;
-  font-size: 1.4rem;
+  font-size: 2.6rem;
   font-weight: 700;
 }
 
@@ -79,4 +82,13 @@
 .user .username{
   color: var(--cyanblue);
   font-weight: 700;
+}
+
+@media screen and (max-width: 900px) {
+  .home-greetings{
+    display: none;
+  }
+  .home-content{
+    grid-template-columns: auto;
+  }
 }

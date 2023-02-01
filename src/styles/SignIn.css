@@ -9,10 +9,11 @@
   background-color: var(--darkblue);
   color: white;
   /* gap: .2rem; */
+  font-weight: 2.2rem;
   display: flex;
   flex-flow: column wrap;
   padding: 10px;
-  margin: auto 0;
+  /* margin: auto auto; */
   max-height: auto;
   justify-content: center;
   border-radius:.1em;
@@ -21,18 +22,19 @@
 
 .login-form > h1{
   text-align: center;
+
 }
 
-.login-form .logo-conteiner a{
-  font-size: 2rem;
+login-form .logo-conteiner, .login-form .logo-conteiner a{
+  font-size: 4rem;
 }
 .fields{
   color: rgb(68, 55, 55);
 }
 
 .login-form .logo-conteiner{
-  width: auto;
-  margin-block: 20px;
+  font-size: 4rem;
+  margin-inline: auto;
 }
 
 label{
@@ -48,12 +50,13 @@ label{
   border-radius: .1em;
 }
 
-.fields .btn-styled{
+.btn-styled{
   background-color: rgb(8, 123, 158);
   color: white;
   cursor: pointer;
+  padding: 12px;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 2rem;
   transition: .4s ease-in-out;
 }
 .fields input{
@@ -73,7 +76,7 @@ label{
 
 .error-msg{
   color: red;
-  font-size: .9rem;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 
@@ -83,12 +86,14 @@ label{
   text-align: center;
   display: block;
   margin: 10px;
+  font-size: 2rem;
 }
 
 .create-account-link {
   color: white;
   text-align: center;
   margin: 10px;
+  font-size: 2rem;
 
 }
 

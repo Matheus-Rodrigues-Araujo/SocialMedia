@@ -1,11 +1,13 @@
 .post{
-    margin-inline: auto;
-    width: 70%;
-    font-size: 2em;
-    margin-block: 60px;
+    font-size: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+
 }
 
 .post h3{
+    font-size: 3rem;
+
 color: var(--darkblue);
 }
 
@@ -13,11 +15,17 @@ color: var(--darkblue);
     width: 50%;
     margin: 20px auto;
     transition: .4s ease-in-out;
+    position: absolute;
+    left: 0;
+    padding: 15px;
 }
 
 
 .post textarea{
-    font-size: 1.1rem;
+    font-size: 2rem;
+    overflow: auto;
     padding: 2px;
+    width: 500px;
+    height: 200px;
     border: 3px outset var(--darkblue);
 }

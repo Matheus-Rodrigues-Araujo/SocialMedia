@@ -43,13 +43,11 @@ export const SignIn = () => {
         
         <div className="fields" >
           <label>
-            {/* Email */}
             <input type='text' placeholder="...Email" {...register('email')}/>
             <p className='error-msg' >{errors.email?.message}</p>
           </label>
 
           <label>
-            {/* Password */}
             <input type='password' placeholder="...Password" {...register('password')} />
             <p className='error-msg' >{errors.password?.message}</p>
           </label>

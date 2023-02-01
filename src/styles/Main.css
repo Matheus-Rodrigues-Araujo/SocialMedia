@@ -2,6 +2,7 @@
     display: flex;
     grid-template-columns: repeat(2, 1.2fr 2fr);
     /* min-height: 100vh; */
+    overflow: hidden;
 }
 
 .main-content{
