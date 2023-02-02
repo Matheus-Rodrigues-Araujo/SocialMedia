@@ -15,8 +15,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 export const Sidebar = () =>{
-  const auth = useSelector(state => state.user.auth)
-  const isLogged = useSelector(state => state.user.isLogged)
+  // const auth = useSelector(state => state.user.auth)
+  // const isLogged = useSelector(state => state.user.isLogged)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   
