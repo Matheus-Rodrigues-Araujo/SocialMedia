@@ -33,6 +33,8 @@
 .post-status{
     display: flex;
     justify-content: center;
+    border-top: 2px solid gray;
+    padding: 5px;
     gap: 2em;
 }
 

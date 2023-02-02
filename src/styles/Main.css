@@ -7,16 +7,19 @@
 }
 
 .main-content{
-    margin-left: 250px;
+    margin-left: 135px;
     position: absolute;
     min-height: 100vh;
     font-size: 2rem;
     padding: 2em;
+    background-color: var(--darkblue);
     text-align: justify;
 }
 
 @media screen and (max-width: 720px) {
     .main-content{
-        margin-left: 140px;
+        margin-left: 105px;
     }
 }
+
+

@@ -6,6 +6,8 @@
   font-size: 2rem;
   background-color: black;
   gap: 20px;
+  width: 150px;
+  z-index: 1;
 }
 
 .logo-conteiner{
@@ -99,5 +101,9 @@
 
   .categories a{
     display: none;
+  }
+
+  .sidebar{
+    width: 110px;
   }
 }
