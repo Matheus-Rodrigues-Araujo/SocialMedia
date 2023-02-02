@@ -1,12 +1,13 @@
 .main{
     display: flex;
     grid-template-columns: repeat(2, 1.2fr 2fr);
-    /* min-height: 100vh; */
+    height: 100%;
+    background-color: var(--darkblue);
     overflow: hidden;
 }
 
 .main-content{
-    margin-left: 200px;
+    margin-left: 250px;
     position: absolute;
     min-height: 100vh;
     font-size: 2rem;
@@ -16,6 +17,6 @@
 
 @media screen and (max-width: 720px) {
     .main-content{
-        margin-left: 150px;
+        margin-left: 140px;
     }
 }
