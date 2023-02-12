@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const port = process.env.port || 4000
+const PORT = process.env.port || 4000
 const dotenv = require('dotenv')
 dotenv.config({path: '.env'})
 
@@ -24,10 +24,4 @@ app.use('/post', postController)
 app.use('/user', userController)
 
 
-app.listen(port, ()=>{
-    dbo.connectToServer((err)=>{
-        if (err) console.error(err);
-    })
-
-    console.log(`Server is running on port ${port}`)
-})
+app.listen(PORT, ()=>{console.log(`Server is running on port ${PORT}`)})

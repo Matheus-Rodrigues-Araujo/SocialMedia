@@ -21,12 +21,12 @@ export const Register = () =>{
 
   const onSubmit = async (formData) => {
     const {username, email, password} = formData
-    const url = "http://localhost:4000/api/register"
+    const url = "http://localhost:4000/auth/register"
     const data = {username, email, password}
     const config = {"content-type": "application/json"}
     const response = await Axios.post(url, data, config)
     response.data && console.log('user created')
-    navigate('/login')
+    navigate('/')
   }
 
   return(

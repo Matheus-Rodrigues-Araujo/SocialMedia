@@ -7,7 +7,7 @@ export const Welcome = () => {
     const auth = useSelector((state) => state.user.auth)
     const [usersList, setUsersList] = useState([])  
     const serverConnection = () =>{
-        const url = 'http://localhost:4000/api';
+        const url = 'http://localhost:4000/user/findAll';
         const config= {'content-type': 'application/json'}
         Axios.get(url, config).then(res => {
         setUsersList(res.data)

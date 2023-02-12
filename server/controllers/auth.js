@@ -5,7 +5,7 @@ const authController = express.Router()
 const User = require('../models/User')
 
 // REGISTER
-authController.route('/api/register').post( async (req, res)=>{
+authController.route('/register').post( async (req, res)=>{
    try {
       const isExisting = await User.findOne({email: req.body.email})
 
@@ -35,8 +35,8 @@ authController.route('/api/register').post( async (req, res)=>{
 })
 
 // LOGIN
-authController.post('/api/login', async (req, res)=>{
-   try {
+authController.post('/login', async (req, res)=>{
+   try { 
       const user = await User.findOne({email: req.body.email})
 
       if(!user){
