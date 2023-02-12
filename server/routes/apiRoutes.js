@@ -34,7 +34,7 @@ apiRoutes.route('/api/login').post((req, res)=>{
         // console.log(userSession)
         res.json(userInfo)
     })
-    console.log(req.session.user)
+    // console.log(req.session.user)
  
 
 })
