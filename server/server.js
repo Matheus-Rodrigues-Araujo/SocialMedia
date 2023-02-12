@@ -3,9 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 require("dotenv").config({path: ".env"})
 const cors = require('cors')
-
 const port = process.env.port || 4000
-const session = require('express-session')
 
 app.use(cors())
 app.use(express.json())
