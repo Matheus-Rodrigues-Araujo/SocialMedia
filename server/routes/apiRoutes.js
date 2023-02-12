@@ -28,10 +28,15 @@ apiRoutes.route('/api/login').post((req, res)=>{
     })
     .toArray((err, result)=>{
         if(err) throw new Error("Couldn't connect")
-        res.json(result[0])
-        // res.json(result)
-        // res.send('DB connected')
+        const userInfo = result[0]
+        console.log(userInfo)
+        // const userSession = {username: userInfo.username, email: userInfo.email}
+        // console.log(userSession)
+        res.json(userInfo)
     })
+    console.log(req.session.user)
+ 
+
 })
 
 // Get a single record by id
