@@ -4,7 +4,7 @@ import * as yup  from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useSelector, useDispatch} from 'react-redux';
 import Axios from 'axios';
-import { authenticateUser } from '../features/user/userSlice';
+// import { authenticateUser } from '../features/user/userSlice';
 
 const schema = yup.object({
   email: yup.string().required('Email is required!'),
@@ -25,10 +25,9 @@ export const Login = () => {
     
     await Axios.post(url, data, config)
     .then(res=>{
-      dispatch(
-        authenticateUser(res.data)
-      )
-    }).then(()=>navigate('/user/welcome'))
+      console.log(res.data)
+      navigate('/user/welcome')
+    })
     .catch(error =>{
       console.log(error)
     })

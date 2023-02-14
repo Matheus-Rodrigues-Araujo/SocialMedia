@@ -19,7 +19,7 @@ export const SignIn = () => {
 
   const onSubmit = async (formValues) =>{
     const {email, password} = formValues
-    const url = "http://localhost:4000/api/login"
+    const url = "http://localhost:4000/auth/login"
     const data = {email: email, password: password}
     const config = {'content-type': 'application/json'}
     
@@ -28,7 +28,8 @@ export const SignIn = () => {
       dispatch(
         authenticateUser(res.data)
       )
-    }).then(()=> navigate('/user/welcome'))
+      navigate('/user/welcome')
+    })
     .catch(error =>{
       console.log(error)
     }) 
