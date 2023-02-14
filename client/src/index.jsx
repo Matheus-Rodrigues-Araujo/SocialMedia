@@ -9,7 +9,7 @@ import "./styles/App.css"
 import './styles/Home.css'
 import './styles/Welcome.css'
 import './styles/SignIn.css'
-import "./styles/Register.css"
+import "./styles/SignUp.css"
 import './styles/Sidebar.css'
 import './styles/Post.css'
 import './styles/NotFound.css'
