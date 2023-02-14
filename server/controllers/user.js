@@ -26,10 +26,15 @@ userController.get('/findAll', async (req, res) => {
         const users = await User.find()
 
         const formattedUsers = users.map((user) => {
-            return { username: user.username, email: user.email, _id: user._id, createdAt: user.createdAt }
+            return {
+                _id: user._id,
+                username: user.username,
+                // email: user.email,
+                // createdAt: user.createdAt
+                }
         })
 
-        return res.status(200).json({ user: formattedUsers })
+        return res.status(200).json(formattedUsers)
     } catch (error) {
         return res.status(500).json(error.message)
     }

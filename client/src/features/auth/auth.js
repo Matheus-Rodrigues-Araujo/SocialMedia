@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const LOGIN = 'login'
 
-const ROOT_URL = "http://localhost:4000/api"
+const ROOT_URL = "http://localhost:4000/auth"
 
 export const login = ()=>{
     const request = axios
