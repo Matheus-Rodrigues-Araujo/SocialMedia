@@ -17,6 +17,7 @@ export const userSlice = createSlice({
       disconnectUser: (state)=> {
         state.auth = null
         state.isLogged = false
+        localStorage.removeItem('user')
       }},
       
       storeUsers: (state, action) =>{

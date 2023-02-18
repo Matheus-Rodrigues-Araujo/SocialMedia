@@ -6,7 +6,7 @@ export const Home = () =>{
   const auth = useSelector(state => state.user.auth)
   
   if(auth?.user){
-    navigate('/user/welcome')
+    navigate('/user')
   }else{
     return(
       <div className="home">

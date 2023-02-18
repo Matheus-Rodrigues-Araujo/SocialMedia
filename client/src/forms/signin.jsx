@@ -27,7 +27,7 @@ export const SignIn = () => {
     .then(res=>{
       dispatch(authenticateUser(res.data))
       localStorage.setItem('user', JSON.stringify(res.data))
-      navigate('/user/welcome')
+      navigate('/user')
     })
     .catch(error =>{
       console.log(error)

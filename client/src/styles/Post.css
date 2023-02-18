@@ -7,21 +7,24 @@
 
 .post h3{
     font-size: 3rem;
-
-color: var(--darkblue);
+    color: white;
 }
 
-.post .fields .btn-styled{
-    width: 50%;
+.post .btn-styled{
+    border: none;
+    border-radius: .3em;
+    width: 100%;
     margin: 20px auto;
     transition: .4s ease-in-out;
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     padding: 15px;
 }
 
 
 .post textarea{
+    border: none;
+    border-radius: .3em;
     font-size: 2rem;
     overflow: auto;
     padding: 2px;
