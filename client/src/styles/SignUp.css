@@ -24,7 +24,6 @@
 .register-form > h1{
   text-align: center;
   margin-bottom: 8px;
-
 }
 
 .register-form .logo-conteiner, .register-form .logo-conteiner a{
@@ -111,12 +110,10 @@ label{
 }
 
 .help-conteiner{
-  /* outline: 3px outset var(--green); */
   font-size: 1rem;
   font-weight: 700;
   display: flex;
   flex-flow: column wrap;
-  /* align-content: center; */
   gap: 1.5em;
   margin-bottom:10px;
   justify-content: center;
@@ -124,5 +121,4 @@ label{
 
 .help-conteiner div{
   outline: 3px outset var(--green);
-
 }

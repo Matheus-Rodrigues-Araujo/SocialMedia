@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 
 export const FilteredUsers = ({usersList}) =>{
     const auth = useSelector(state => state.user.auth)
-    const filteredUsers = usersList.filter(user => user._id !== auth._id)
+    const filteredUsers = usersList.filter(user => user._id !== auth.user._id)
     return (
         <ul className="posts-list" >
             {filteredUsers.map((e, key)=> (

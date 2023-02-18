@@ -1,14 +1,19 @@
+import { useSelector } from "react-redux"
 import { SignIn } from "../forms/signin"
-import img1 from '../images/img1.jpg'
-
+import { useNavigate } from "react-router-dom"
 export const Home = () =>{
-
-  return(
-    <div className="home">
-      {/* <div className="home-content"> */}
-      <div className="form-conteiner">
-        <SignIn />
+  const navigate = useNavigate()
+  const auth = useSelector(state => state.user.auth)
+  
+  if(auth?.user){
+    navigate('/user/welcome')
+  }else{
+    return(
+      <div className="home">
+        <div className="form-conteiner">
+          <SignIn />
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }

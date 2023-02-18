@@ -59,7 +59,6 @@ export const Register = () =>{
           </label>
 
           <label>
-              {/* Password */}
               <input 
               type='password'
               placeholder="...Password"  
@@ -69,7 +68,6 @@ export const Register = () =>{
           </label>
 
           <label>
-              {/* Verify password */}
               <input 
               type='password' 
               placeholder="...Verify password"

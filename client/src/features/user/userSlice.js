@@ -13,6 +13,7 @@ export const userSlice = createSlice({
         state.auth = action.payload
         state.isLogged = true
       },
+      
       disconnectUser: (state)=> {
         state.auth = null
         state.isLogged = false

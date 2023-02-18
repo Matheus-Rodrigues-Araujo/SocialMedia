@@ -25,7 +25,7 @@ export const Sidebar = () =>{
         <ul className='links-items' >
           <li>
             <FontAwesomeIcon icon={faHome} />
-            <Link to='/user/welcome'>Home</Link>
+            <Link to='/user'>Home</Link>
           </li>
           <li>
               <FontAwesomeIcon icon={faHashtag}/>
@@ -56,7 +56,7 @@ return (
   <div className='sidebar'>
     <li className='logo-conteiner' >
       <FontAwesomeIcon icon={faComment} />
-      <Link to='/user/welcome' className='logo-name'>Talk Now!</Link>
+      <Link to='/user' className='logo-name'>Talk Now!</Link>
     </li>
     <SidebarLinks logout={()=>{
       dispatch(disconnectUser())

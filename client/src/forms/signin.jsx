@@ -25,9 +25,8 @@ export const SignIn = () => {
     
     await Axios.post(url, data, config)
     .then(res=>{
-      dispatch(
-        authenticateUser(res.data)
-      )
+      dispatch(authenticateUser(res.data))
+      localStorage.setItem('user', JSON.stringify(res.data))
       navigate('/user/welcome')
     })
     .catch(error =>{
