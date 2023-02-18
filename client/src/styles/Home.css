@@ -8,7 +8,7 @@
   background-color: var(--darkblue);
 }
 
-.home-content{
+.form-conteiner{
   padding: 1em;
   gap: 5px;
   display: grid;
@@ -88,7 +88,7 @@
   .home-greetings{
     display: none;
   }
-  .home-content{
+  .form-conteiner{
     grid-template-columns: auto;
   }
 }

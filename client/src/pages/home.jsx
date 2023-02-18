@@ -5,7 +5,8 @@ export const Home = () =>{
 
   return(
     <div className="home">
-      <div className="home-content">
+      {/* <div className="home-content"> */}
+      <div className="form-conteiner">
         <SignIn />
       </div>
     </div>

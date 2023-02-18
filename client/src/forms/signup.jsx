@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Axios from 'axios'
-
+import { Logo } from '../components/logo';
 const schema = yup.object({
   username: yup.string().required('Username is required!'),
   email: yup.string().required('Email is required!'),
@@ -30,14 +30,16 @@ export const Register = () =>{
   }
 
   return(
-    <section className="register-conteiner">
+    <div className='form-conteiner'>
+      <section className="register-conteiner">
       <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-        <h1>Welcome</h1>
+        <Logo />
+        <h1>Sign Up</h1>
         
         <div className="fields" >
         
           <label>
-              Username
+              {/* Username */}
               <input 
               type='text' 
               placeholder="...Username" 
@@ -47,7 +49,7 @@ export const Register = () =>{
           </label>
           
           <label>
-              Email
+              {/* Email */}
               <input 
               type='text' 
               placeholder="...Email" 
@@ -57,7 +59,7 @@ export const Register = () =>{
           </label>
 
           <label>
-              Password
+              {/* Password */}
               <input 
               type='password'
               placeholder="...Password"  
@@ -67,7 +69,7 @@ export const Register = () =>{
           </label>
 
           <label>
-              Verify password
+              {/* Verify password */}
               <input 
               type='password' 
               placeholder="...Verify password"
@@ -76,13 +78,16 @@ export const Register = () =>{
               {errors.verifyPassword?.message ? <p className='error-msg' >{errors.verifyPassword?.message}</p>: <></>}
           </label>
 
+          <a href="#" className='policy-link'>Privacy Policy</a>
+
           <input 
           type='submit'
           className="btn-styled"
-          value='Login'
+          value='Create Account'
           />
         </div>
       </form>
-    </section>
+     </section>
+    </div>
   )
 }
