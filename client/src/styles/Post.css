@@ -8,11 +8,9 @@
     font-size: 2rem;
     display: flex;
     flex-flow: column wrap;
-
     justify-content: flex-start;
     align-content: center;
-    width: 350px;
-    padding: 40px 10px;
+    width: 360px;
     position: absolute;
     z-index: 1;
     height: 100vh;
@@ -20,6 +18,23 @@
     left: 0;
     top: 0;
     background-color: white;   
+}
+
+.post-form .logo-conteiner{
+    background-color: black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.post-form .content{
+    padding: 60px;
+
+}
+.post-form .logo-conteiner svg{
+    color: white;
 }
 
 .post-form h3{
@@ -30,12 +45,19 @@
     border-bottom: 3px solid var(--grey);
 }
 
-.post-form .author{
+.title{
+    padding: 2px;
+    border: 1.5px solid rgb(116, 114, 114);
+    font-size: 2rem;
+    width: 100%;
+}
+
+.author{
     font-size: 2.5rem;
     color: var(--blue);
 }
 
-.post-form textarea{
+.description{
     border: none;
     border-radius: .3em;
     font-size: 2rem;
@@ -43,7 +65,7 @@
     padding: 2px;
     width: 320px;
     height: 200px;
-    border: 3px solid rgb(116, 114, 114);
+    border: 1.5px solid rgb(116, 114, 114);
 }
 
 /* post-buttons-conteiner */
