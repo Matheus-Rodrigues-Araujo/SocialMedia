@@ -4,14 +4,14 @@ import Axios from 'axios'
 import { FilteredUsers } from "../components/filteredUsers"
 
 export const Welcome = () => {
-    const [usersList, setUsersList] = useState(null)
+    const [postsList, setPostsList] = useState(null)
     const auth = useSelector((state) => state.user.auth)
 
     const serverConnection = async () =>{
-        const url = "http://localhost:4000/user/findAll"
+        const url = "http://localhost:4000/post/getAll"
         const config= {'content-type': 'application/json'}
         await Axios.get(url, config).then(res => {
-            setUsersList(res.data)
+            setPostsList(res.data)
         })
         .catch(error => console.log(error))
     }
@@ -29,7 +29,7 @@ export const Welcome = () => {
             </div>
             <h3 style={{fontSize: '1.5em'}}  >Home page</h3>
 
-            {usersList && <FilteredUsers usersList={usersList} />}
+            {postsList && <FilteredUsers postsList={postsList} />}
             
         </div>
     )

@@ -48,16 +48,16 @@
     border-bottom: 3px solid var(--grey);
 }
 
+.author{
+    font-size: 2.5rem;
+    color: var(--blue);
+}
+
 .title{
     padding: 2px;
     border: 1.5px solid rgb(116, 114, 114);
     font-size: 2rem;
     width: 100%;
-}
-
-.author{
-    font-size: 2.5rem;
-    color: var(--blue);
 }
 
 .description{
@@ -68,12 +68,20 @@
     padding: 2px;
     width: 320px;
     height: 200px;
-    border: 1.5px solid rgb(116, 114, 114);
+    border: 1.8px solid rgb(158, 158, 158);
+}
+
+.title:hover, .title:focus,
+.description:hover, .description:focus{
+    border: 1.8px solid rgb(56, 56, 56);
+    outline: none;
 }
 
 /* post-buttons-conteiner */
 .post-buttons-conteiner{
     display: flex;
+    border-bottom: 3px solid var(--grey);
+    padding-bottom: 8px;
     gap: 5px;
 }
 
@@ -87,7 +95,11 @@
     cursor: pointer;
 }
 
-.cancel-btn{ background-color: var(--red);}
+.cancel-btn{
+    background-color: var(--red);
+    text-align: center;
+    text-decoration: none;
+}
 .cancel-btn:hover{ background-color: var(--light-red);}
 
 .post-btn{ background-color: var(--blue); }
