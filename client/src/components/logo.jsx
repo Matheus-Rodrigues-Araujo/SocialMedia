@@ -5,7 +5,7 @@ export const Logo = () => {
     return (
         <div className='logo-conteiner' >
             <FontAwesomeIcon icon={faComment} />
-            <Link to='/' className='logo'>Talk Now!</Link>
+            <Link to='/user' className='logo'>Talk Now!</Link>
         </div>
     )
 }

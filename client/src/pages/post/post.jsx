@@ -40,7 +40,7 @@ export const Post = ()=>{
                     <h3>New post</h3>
                     <p className='author'>@{auth.user.username}</p>
                     <input type="text" className='title' placeholder='...Title' />
-                    <textarea cols="30" rows="10" className='description' placeholder="...Comment something here" {...register('postText')} ></textarea>
+                    <textarea cols="30" rows="10" className='description' placeholder="...Description" {...register('postText')} ></textarea>
                     
                     <div className="post-buttons-conteiner">
                     <input type="submit" className='cancel-btn' value='Cancel'/>
@@ -48,12 +48,13 @@ export const Post = ()=>{
                     </div>
                 </div>
             </form>
-            <div className='post-preview'>
+            {/* <div className='post-preview'>
                 <div className='appearance'>
-                        <h1>sdasdadasd</h1>
-                        
+                        <div className="card">
+
+                        </div>
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }
