@@ -33,7 +33,7 @@ export const Sidebar = () =>{
           </li>
           <li>
               <FontAwesomeIcon icon={faPen}/>
-            <Link to='/user/post'>Post</Link>
+            <Link to='/post'>Post</Link>
           </li>
           <li>
               <FontAwesomeIcon icon={faUserFriends} />

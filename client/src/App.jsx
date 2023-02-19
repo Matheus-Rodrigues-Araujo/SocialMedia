@@ -3,8 +3,8 @@
 import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom'
 import { Home } from "./pages/home";
 import { Register } from "./forms/signup";
-import { Post } from "./pages/post";
-import { NotFound } from "./pages/notFound";
+import { Post } from "./pages/post/post";
+import { NotFound } from "./pages/errors/notFound";
 import { Main } from "./pages/main";
 import { Settings } from "./pages/settings";
 import { Explore } from "./pages/explore";
@@ -18,7 +18,7 @@ import { useEffect } from 'react';
 
 function App() {
   const localToken = JSON.parse(localStorage.getItem('user'))
-  const auth = useSelector((state) => state.user.auth)
+  // const auth = useSelector((state) => state.user.auth)
   const dispatch = useDispatch()
   
   useEffect(()=>{
@@ -37,13 +37,17 @@ function App() {
             <Route path='/user' element={<Main />}>
               <Route index element={<Welcome />}/>
               <Route path='explore' element={<Explore />}/>
-              <Route path='post' element={<Post />}/>
+              {/* <Route path='post' element={<Post />}/> */}
               <Route path='settings' element={<Settings />}/>
               <Route path='profile' element={<Profile />}/>
               <Route path='theme' element={<Theme />}/>
               <Route path='friends' element={<Friends />}/>
             </Route>
             
+            <Route path='/post' >
+              <Route index element={<Post />} ></Route>
+            </Route>
+
             <Route path='*' element={<NotFound/>}/>
           </Routes>
       </Router>
@@ -52,4 +56,3 @@ function App() {
 }
 
 export default App;
-// Routes: explore, post, friends, settings, profile, theme
