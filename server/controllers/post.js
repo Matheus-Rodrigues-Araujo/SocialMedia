@@ -29,8 +29,8 @@ postController.get('/find/:id', async(req, res) => {
 // create
 postController.post('/', verifyToken, async(req, res) => {
     try {
-        const newPost = await Post.create({...req.body, userId: req.user.id})
-
+        // console.log('userId: ', req.userId)
+        const newPost = await Post.create({...req.body, userId: req.userId})
         return res.status(201).json(newPost)
     } catch (error) {
         return res.status(500).json(error.message)

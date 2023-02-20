@@ -2,11 +2,11 @@
   display: flex;
   flex-flow: column wrap;
   height: 100%;
+  width: 200px;
   position: fixed;
   font-size: 2rem;
   background-color: black;
   gap: 20px;
-  width: 150px;
   z-index: 1;
 }
 
@@ -47,10 +47,13 @@
 
 .sidebar .links-items li, .categories li{
   padding: 15px;
-  display:flex;
-  flex-flow: row wrap;
-  gap: 1em;
-  list-style: none;
+    display: flex;
+    margin-inline: auto;
+    flex-flow: row wrap;
+    gap: 1em;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
 }
 
 .sidebar .links-items li:hover, .categories li:hover{

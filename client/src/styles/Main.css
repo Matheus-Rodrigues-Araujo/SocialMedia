@@ -7,8 +7,9 @@
 }
 
 .main-content{
-    margin-left: 135px;
-    position: absolute;
+    /* margin-left: 135px; */
+    margin-inline: auto;
+    /* position: absolute; */
     min-height: 100vh;
     font-size: 2rem;
     padding: 2em;

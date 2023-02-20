@@ -1,15 +1,16 @@
 import {useForm} from 'react-hook-form'
 import * as yup  from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Axios } from "axios"
+import Axios from "axios"
 import { useSelector } from "react-redux"
 import { NotAuthorized } from "../errors/notAuthorized"
 import { Logo } from '../../components/logo';
 import { useNavigate, Link } from 'react-router-dom';
+
 const schema = yup.object({
     title: yup.string().required('Title is required!').min(4).max(50),
     desc: yup.string().required('Description is required!').min(2).max(80)
-})
+}).required()
 
 export const Post = ()=>{
     const navigate = useNavigate()
@@ -22,19 +23,20 @@ export const Post = ()=>{
     }
 
     const createPost = async (formValues)=>{
-        // const url = 'http://localhost:4000/post'
         const { title, desc } = formValues
-        const data = {
-            title: title,
-            desc: desc,
-            userId: token
-        }
+        const url = 'http://localhost:4000/post'
+        const data = {title: title, desc: desc}
         const config = {
-            'headers': {"Authorization": `Bearer ${token}`},
-            // 'content-type': 'application/json'
+            headers:{
+                // 'x-access-token': token,
+                'authorization': `Bearer ${token}`,
+                'content-type': 'application/json'
+            }
         }
-        await Axios.post("http://localhost:4000/post", data, config)
+
+        await Axios.post(url, data, config)
         .then(()=> {
+            console.log('success')
             navigate('/user')
         })
         .catch(error=> console.log(error))

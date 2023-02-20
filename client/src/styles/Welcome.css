@@ -18,15 +18,16 @@
 
 .posts-list .user{
     margin-left: 0;
-    width: 60%;
+    height: 180px;
+    width: 100%;
     border-radius: .7em;
     padding: 10px;
     text-align: justify;
     font-size: 2rem;
     background-color: black;
     color: white;
-    display: flex;
-    flex-flow: column wrap;
+    /* display: flex; */
+    /* flex-flow: column wrap; */
     gap: .7em;
 }
 
