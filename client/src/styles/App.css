@@ -27,6 +27,7 @@
 .App{
   overflow-y: hidden;
   min-height: 100vh;
+  /* background-color: var(--darkblue); */
 }
 
 
@@ -38,14 +39,14 @@
   font-size: .5rem;
   width: 100%;
 }
-
+/* 
 .user{
   padding: 5px;
   width: 100%;
   margin-inline: auto;
   border: 2px solid black;
 
-}
+} */
 
 .filteredUser{
   width: 100%;
@@ -57,7 +58,7 @@
 .filteredUser .findUser{
   margin-inline: auto;
 }
-
+/* 
 .user{
   display: grid;
-}
+} */

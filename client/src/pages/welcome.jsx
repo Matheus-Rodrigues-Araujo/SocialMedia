@@ -1,7 +1,7 @@
 import { useSelector} from "react-redux"
 import { useEffect, useState } from "react"
 import Axios from 'axios'
-import { FilteredUsers } from "../components/filteredUsers"
+import { UsersPosts } from "../components/UsersPosts"
 
 export const Welcome = () => {
     const [postsList, setPostsList] = useState(null)
@@ -22,13 +22,7 @@ export const Welcome = () => {
 
     return (
         <div className="main-content welcome" >
-            {/* <div className="greetings" >
-                <h1>Hello, {auth.user.username}!</h1>
-                <p className="msg">See what's happening!</p>
-            
-            </div> */}
-            {postsList && <FilteredUsers postsList={postsList} />}
-            
+            {postsList && <UsersPosts postsList={postsList} />}
         </div>
     )
 }
