@@ -56,8 +56,14 @@
 }
 
 @media screen and (max-width: 720px) {
+   :root{
+    font-size: 4.5px;
+   }
+    
     .posts-list .user{
         width: 100%;
         font-size: 1.8rem;
     }
+
+   
 }

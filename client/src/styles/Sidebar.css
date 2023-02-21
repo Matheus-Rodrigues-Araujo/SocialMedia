@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column wrap;
   height: 100%;
-  width: 320px;
+  width: 300px;
   position: fixed;
   font-size: 2rem;
   background-color: black;
