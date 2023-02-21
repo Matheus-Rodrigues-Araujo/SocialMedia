@@ -5,7 +5,7 @@
   display: flex;
   flex-flow: column wrap;
   height: 100%;
-  width: 300px;
+  width: 250px;
   position: fixed;
   font-size: 2.2rem;
   background-color: black;
@@ -57,7 +57,7 @@
 }
 
 .sidebar .links-list a, .categories li{
-    padding: 15px;
+    padding: 20px 10px;
     display: flex;
     margin-inline: auto;
     flex-flow: row wrap;
@@ -73,13 +73,13 @@
 
 }
 
-.sidebar svg, .categories svg{color:white}
+.sidebar .logo-conteiner svg{color:white}
 
 .sidebar li{list-style: none;}
 
-.sidebar .links-list li svg{
-  height: 20px;
-  width: 20px;
+.svg-link-conteiner svg{
+  height: 25px;
+  width: 25px;
   font-weight: 500;
   cursor: pointer;
 }
@@ -99,30 +99,47 @@
 
 .categories{
   right: 0;
-  /* list-style: none; */
 }
 
-@media screen and (max-width:720px) {
+
+@media screen and (max-width: 720) {
+  .sidebar .logo-conteiner svg{
+    padding: 0px;
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width:800px) {
   .categories{
     font-size: 1.8rem;
   }
-}
 
-@media screen and (max-width:800px)  {
-  .links-list li a, .logout-btn{
+  .svg-link-conteiner p {
     display: none;
   }
 
-  
-
-  .categories a{
-    display: none;
+  .svg-link-conteiner svg{
+    width: 20px;
+    height: 20px;
+    margin-inline: auto;
   }
 
   .sidebar{
-    width: 110px;
+    width: 120px;
+  }
+
+  .logo-conteiner {
+    font-size: 2.2rem;
+    padding: 0px;
+  }
+
+}
+/* 
+@media screen and (max-width:800px)  {
+  .sidebar{
+    width: 120px;
   }
 .svg-link-conteiner{
   width: 80px;
 }
-}
+} */

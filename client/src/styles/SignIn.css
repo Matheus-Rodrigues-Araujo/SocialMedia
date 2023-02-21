@@ -6,7 +6,7 @@
 }
 
 .login-form{
-  background-color: var(--darkblue);
+  /* background-color: var(--darkblue); */
   color: white;
   /* gap: .2rem; */
   font-weight: 2.2rem;

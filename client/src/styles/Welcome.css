@@ -20,7 +20,7 @@
     padding: 10px;
     gap: 1em;
     border: 1.5px solid var(--grey);
-    background-color: var(--grey);
+    background-color: var(--dark-grey);
 }
 
 .posts-list .user{
@@ -60,9 +60,9 @@
 }
 
 @media screen and (max-width: 720px) {
-   :root{
-    font-size: 4.5px;
-   }
+   /* :root{
+    font-size:7px;
+   } */
     
     .posts-list .user{
         width: 100%;

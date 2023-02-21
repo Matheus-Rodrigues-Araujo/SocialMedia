@@ -69,7 +69,7 @@ export const Sidebar = () =>{
                   <Link key={item.name} to={item.link} onClick={logout} >
                     <div className='svg-link-conteiner' >
                       <FontAwesomeIcon icon={item.icon} />
-                      {item.name}
+                      <p>{item.name}</p>
                     </div>
                   </Link>
                 )
@@ -78,7 +78,7 @@ export const Sidebar = () =>{
                   <Link key={item.name} to={item.link} >
                     <div className='svg-link-conteiner' >
                       <FontAwesomeIcon icon={item.icon} />
-                      {item.name}
+                      <p>{item.name}</p>
                     </div>
                   </Link>
                 )
