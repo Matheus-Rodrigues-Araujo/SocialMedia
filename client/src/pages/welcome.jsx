@@ -17,9 +17,7 @@ export const Welcome = () => {
     }
 
     useEffect(()=>{
-        if(auth.user){
-            serverConnection()
-        }
+        auth.user && serverConnection()
     },[])
 
     return (
@@ -27,7 +25,7 @@ export const Welcome = () => {
             <div className="greetings" >
                 <h1>Hello, {auth.user.username}</h1>
             </div>
-            <h3 style={{fontSize: '1.5em'}}  >Home page</h3>
+            <p className="msg">See what's happening!</p>
 
             {postsList && <FilteredUsers postsList={postsList} />}
             

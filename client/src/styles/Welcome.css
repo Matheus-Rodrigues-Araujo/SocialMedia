@@ -1,11 +1,12 @@
-.greetings h1, h3{
+.greetings h1{
     color: white;
+    font-size: 3.2rem;
 }
 
-.greetings h3{
-    font-size: 1.8rem;
+.msg{
+    color: var(--cyanblue);
+    font-size: 4rem;
 }
-
 
 .posts-list{
     display: flex;

@@ -20,34 +20,71 @@ export const Sidebar = () =>{
   const navigate = useNavigate()
   const dispatch = useDispatch()
   
+  const logout = ()=>{
+    dispatch(disconnectUser())
+    // navigate('/')
+  }
+
+  const listItems = [
+    {
+      name: 'Home',
+      icon: faHome,
+      link: '/user'
+    },
+    {
+      name: 'Explore',
+      icon: faHashtag,
+      link: '/user/explore'
+    },
+    {
+      name: 'Post',
+      icon: faPen,
+      link: '/post'
+    },
+    {
+      name: 'Friends',
+      icon: faUserFriends,
+      link: '/user/friends'
+    },
+    {
+      name: 'Settings',
+      icon: faTools,
+      link: '/user/settings'
+    },
+    {
+      name: 'Logout',
+      icon: faDoorOpen,
+      link: '/',
+      action: logout
+    },
+  ]
+
   const SidebarLinks = ({logout}) =>{
       return(
-        <ul className='links-items' >
-          <li>
-            <FontAwesomeIcon icon={faHome} />
-            <Link to='/user'>Home</Link>
-          </li>
-          <li>
-              <FontAwesomeIcon icon={faHashtag}/>
-            <Link to='/user/explore'>Explore</Link>
-          </li>
-          <li>
-              <FontAwesomeIcon icon={faPen}/>
-            <Link to='/post'>Post</Link>
-          </li>
-          <li>
-              <FontAwesomeIcon icon={faUserFriends} />
-            <Link to='/user/friends'>Friends</Link>
-          </li>
-          <li>
-              <FontAwesomeIcon icon={faTools}/>
-            <Link to='/user/settings' >Settings</Link>
-          </li>
-
-          <li>
-              <FontAwesomeIcon icon={faDoorOpen} />
-              <button onClick={logout} className='logout-btn'>Logout</button>
-          </li>
+        <ul className='links-list' >
+          {
+            listItems.map(item => {
+              if(item?.action){
+                return(
+                  <Link key={item.name} to={item.link} onClick={logout} >
+                    <div className='svg-link-conteiner' >
+                      <FontAwesomeIcon icon={item.icon} />
+                      {item.name}
+                    </div>
+                  </Link>
+                )
+              }else{
+                return(
+                  <Link key={item.name} to={item.link} >
+                    <div className='svg-link-conteiner' >
+                      <FontAwesomeIcon icon={item.icon} />
+                      {item.name}
+                    </div>
+                  </Link>
+                )
+              }
+            })
+          }
         </ul>
       )
     }
