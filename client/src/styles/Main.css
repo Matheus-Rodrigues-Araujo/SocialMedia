@@ -2,7 +2,8 @@
     display: flex;
     grid-template-columns: repeat(2, 1.2fr 2fr);
     height: 100%;
-    background-color: var(--darkblue);
+    /* background-color: var(--darkblue); */
+    background-color: black;
     overflow: hidden;
 }
 
@@ -12,8 +13,9 @@
     /* position: absolute; */
     min-height: 100vh;
     font-size: 2rem;
-    padding: 2em;
-    background-color: var(--darkblue);
+    padding: 1em;
+    /* background-color: var(--darkblue); */
+    /* border: 1.5px solid var(--grey); */
     text-align: justify;
 }
 

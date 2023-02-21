@@ -24,8 +24,10 @@ export const Welcome = () => {
         <div className="main-content welcome" >
             <div className="greetings" >
                 <h1>Hello, {auth.user.username}</h1>
+                <p className="msg">See what's happening!</p>
+            
             </div>
-            <p className="msg">See what's happening!</p>
+            {/* <p className="msg">See what's happening!</p> */}
 
             {postsList && <FilteredUsers postsList={postsList} />}
             
