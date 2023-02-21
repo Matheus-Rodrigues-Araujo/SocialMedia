@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHeart, faComments, faChartSimple } from "@fortawesome/free-solid-svg-icons"
+import { faHeart, faComments, faBookmark } from "@fortawesome/free-solid-svg-icons"
 import { useSelector } from "react-redux"
 
 export const FilteredUsers = ({postsList}) =>{
@@ -9,7 +9,6 @@ export const FilteredUsers = ({postsList}) =>{
         <ul className="posts-list" >
             {filteredUsers.map((e, key)=> (
                 <li className='user' key={key}>
-                    {/* <p className="username">@{e.username}</p> */}
                     <p className="username">@{e.title}</p>
                     <p>{e.desc}</p>
                     <div className="post-status">
@@ -17,10 +16,10 @@ export const FilteredUsers = ({postsList}) =>{
                             <FontAwesomeIcon icon={faHeart}/>{e.likes.length}
                         </button>
                         <button className="comments" >
-                            <FontAwesomeIcon icon={faComments}/>12
+                            <FontAwesomeIcon icon={faComments}/>
                         </button>
                         <button className="views" >
-                            <FontAwesomeIcon icon={faChartSimple}/>9
+                            <FontAwesomeIcon icon={faBookmark}/>
                         </button>
                     </div>
                 </li>

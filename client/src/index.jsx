@@ -11,6 +11,7 @@ import './styles/Welcome.css'
 import './styles/SignIn.css'
 import "./styles/SignUp.css"
 import './styles/Sidebar.css'
+import './styles/Logo.css'
 import './styles/Post.css'
 import './styles/NotFound.css'
 

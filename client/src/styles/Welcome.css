@@ -1,14 +1,20 @@
 .greetings{
-    border: 1.5px solid var(--grey);
+    /* border: 1.5px solid var(--grey); */
+    border: 1.5px solid var(--green);
+
     padding: 10px;
 }
 .greetings h1{
     color: white;
+
+    /* color: var(--cyanblue); */
     font-size: 3.2rem;
 }
 
 .greetings .msg{
-    color: var(--cyanblue);
+    color: white;
+
+    /* color: var(--cyanblue); */
     font-size: 4rem;
 }
 
@@ -19,7 +25,8 @@
     align-items: flex-start;
     padding: 10px;
     gap: 1em;
-    border: 1.5px solid var(--grey);
+    /* border: 1.5px solid var(--grey); */
+    border: 1.5px solid var(--green);
     background-color: var(--dark-grey);
 }
 
@@ -28,6 +35,7 @@
     height: 180px;
     width: 100%;
     border-radius: .7em;
+    border-color: var(--green);
     padding: 10px;
     text-align: justify;
     font-size: 2rem;

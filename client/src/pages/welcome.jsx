@@ -22,13 +22,11 @@ export const Welcome = () => {
 
     return (
         <div className="main-content welcome" >
-            <div className="greetings" >
-                <h1>Hello, {auth.user.username}</h1>
+            {/* <div className="greetings" >
+                <h1>Hello, {auth.user.username}!</h1>
                 <p className="msg">See what's happening!</p>
             
-            </div>
-            {/* <p className="msg">See what's happening!</p> */}
-
+            </div> */}
             {postsList && <FilteredUsers postsList={postsList} />}
             
         </div>

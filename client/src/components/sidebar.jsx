@@ -66,7 +66,7 @@ export const Sidebar = () =>{
             listItems.map(item => {
               if(item?.action){
                 return(
-                  <Link key={item.name} to={item.link} onClick={logout} >
+                  <Link key={item.name} to={item.link} onClick={logout} className='logout-btn'>
                     <div className='svg-link-conteiner' >
                       <FontAwesomeIcon icon={item.icon} />
                       <p>{item.name}</p>
