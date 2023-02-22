@@ -6,6 +6,7 @@
     <img src="images\user_page1.png" width="100%" height="auto">
     <img src="images\user_page2.png" width="100%" height="auto">
 </div>
+
 # DESCRIPTION
 "TalkNow" is an open source social network and a personal project, with the aim of creating a united environment conducive to interesting conversations.
 
