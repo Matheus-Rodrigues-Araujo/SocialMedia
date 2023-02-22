@@ -8,7 +8,7 @@ import { NotFound } from "./pages/errors/notFound";
 import { Main } from "./pages/main";
 import { Settings } from "./pages/settings";
 import { Explore } from "./pages/explore";
-import { Profile } from "./pages/profile";
+import { Profile } from "./pages/profile/profile";
 import { Theme } from "./pages/theme";
 import { Welcome } from './pages/welcome';
 import { Friends } from './pages/friends';
@@ -37,11 +37,13 @@ function App() {
             <Route path='/user' element={<Main />}>
               <Route index element={<Welcome />}/>
               <Route path='explore' element={<Explore />}/>
-              {/* <Route path='post' element={<Post />}/> */}
               <Route path='settings' element={<Settings />}/>
-              <Route path='profile' element={<Profile />}/>
               <Route path='theme' element={<Theme />}/>
               <Route path='friends' element={<Friends />}/>
+
+              <Route>
+                <Route path='profile' index element={<Profile />}/>
+              </Route>
             </Route>
             
             <Route path='/post' >

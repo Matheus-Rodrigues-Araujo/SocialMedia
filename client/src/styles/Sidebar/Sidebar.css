@@ -34,6 +34,9 @@
   flex-flow: column wrap;
 }
 
+.sidebar .links-list a{
+  transition: .3s ease-in-out;
+}
 .sidebar .links-list a:first-child{
   background-color: var(--green);
   font-weight: 700;

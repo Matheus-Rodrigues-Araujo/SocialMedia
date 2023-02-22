@@ -2,20 +2,15 @@
     display: flex;
     grid-template-columns: repeat(2, 1.2fr 2fr);
     height: 100%;
-    /* background-color: var(--darkblue); */
     background-color: black;
     overflow: hidden;
 }
 
 .main-content{
-    /* margin-left: 135px; */
     margin-inline: auto;
-    /* position: absolute; */
     min-height: 100vh;
     font-size: 2rem;
     padding: 1em;
-    /* background-color: var(--darkblue); */
-    /* border: 1.5px solid var(--grey); */
     text-align: justify;
 }
 
