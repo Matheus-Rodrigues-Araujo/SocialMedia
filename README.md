@@ -1,10 +1,11 @@
 # Social Media App
 
-<img src="images\home.png" width="100px" height="auto">
-<img src="images\create_user.png" width="100px" height="auto">
-<img src="images\user_page1.png" width="100px" height="auto">
-<img src="images\user_page2.png" width="100px" height="auto">
-
+<div style="display: flex; justify-content: center;" >
+    <img src="images\home.png" width="80%" height="auto">
+    <img src="images\create_user.png" width="80%" height="auto">
+    <img src="images\user_page1.png" width="80%" height="auto">
+    <img src="images\user_page2.png" width="80%" height="auto">
+</div>
 # DESCRIPTION
 "TalkNow" is an open source social network and a personal project, with the aim of creating a united environment conducive to interesting conversations.
 
