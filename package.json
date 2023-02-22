@@ -1,0 +1,25 @@
+{
+  "name": "socialmedia",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm run start --prefix server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matheus-Rodrigues-Araujo/SocialMedia.git"
+  },
+  "keywords": [],
+  "author": "Matheus Rodrigues Araujo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matheus-Rodrigues-Araujo/SocialMedia/issues"
+  },
+  "homepage": "https://github.com/Matheus-Rodrigues-Araujo/SocialMedia#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
