@@ -62,7 +62,7 @@ postController.delete('/:id', verifyToken, async(req, res) => {
 
         if(!post){
             return res.status(500).json({msg: "No such post"})
-        } else if(post.userId !== req.user.id){
+        } else if(post.userId !== req.userId){
             return res.status(403).json({msg: "You can delete only your own posts"})
         } else {
             await Post.findByIdAndDelete(req.params.id)
@@ -75,14 +75,15 @@ postController.delete('/:id', verifyToken, async(req, res) => {
 
 postController.put("/likeDislike/:id", verifyToken, async(req, res) => {
     try {
-        const currentUserId = req.user.id
-        const post = await Post.findById(req.params.id)
+        const currentUserId = req.userId
+        const post = await Post.findById(req.body.postId)
 
      
         if(post.likes.includes(currentUserId)){
            post.likes = post.likes.filter((id) => id !== currentUserId)
            await post.save()
-           return res.status(200).json({msg: "Successfully unliked the post"})
+           const likes = post.likes.length
+           return res.status(200).json({likes: likes})
         } else {
            post.likes.push(currentUserId)
            await post.save()
