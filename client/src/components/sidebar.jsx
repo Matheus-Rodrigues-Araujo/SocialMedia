@@ -37,7 +37,7 @@ export const Sidebar = () =>{
       link: '/user/explore'
     },
     {
-      name: 'Post',
+      name: 'Create',
       icon: faPen,
       link: '/post'
     },

@@ -40,12 +40,10 @@ function App() {
               <Route path='settings' element={<Settings />}/>
               <Route path='theme' element={<Theme />}/>
               <Route path='friends' element={<Friends />}/>
-
-              <Route>
-                <Route path='profile' index element={<Profile />}/>
-              </Route>
             </Route>
             
+            <Route path='/profile' element={<Profile/>} />
+
             <Route path='/post' >
               <Route index element={<Post />} ></Route>
             </Route>
