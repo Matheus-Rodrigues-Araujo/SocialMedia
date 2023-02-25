@@ -4,12 +4,13 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import Axios from 'axios'
 export const PostCard = ({post}) =>{
-    const [likes, setLikes] = useState(null)
+    const [postInfo, setPostInfo] = useState({...post})
+    const [likes, setLikes] = useState(postInfo?.likes.length)
     const auth = useSelector(state => state.user.auth)
     const token = auth?.token
 
-    const PostData = async ()=>{
-        const postId = post._id
+    const postData = async ()=>{
+        const postId = postInfo._id
         const url=`http://localhost:4000/post/likeDislike/${postId}`
         const config={
           headers:{
@@ -20,30 +21,26 @@ export const PostCard = ({post}) =>{
   
         await Axios.put(url, {postId: postId},config)
         .then((res)=> {
-            setLikes(res.data.likes)
+        //  console.log(res.data.likes)
+        setLikes(res.data.likes)
+        
         })
         .catch((error)=> console.log(error))
       }
+    
+    useEffect(()=>{
+      // postInfo.likes && 
+      likes && postData()
 
-      const checkLikes = ()=>{
-        if(likes.length >=1){
-            return likes
-        }else{
-            return 0
-        }
-      }
-
-      useEffect(()=>{
-        PostData()
-      }, [])
+    },[])
 
     return (
         <li className='post-card' key={post.name}>
             <p className="title">@{post.title}</p>
             <p className="description" >{post.desc}</p>
             <div className="post-status">
-                <button className="like" title="Likes" onClick={()=>PostData()}>
-                    <FontAwesomeIcon icon={faHeart}/>{checkLikes}
+                <button className="like" title="Likes" onClick={postData}>
+                    <FontAwesomeIcon icon={faHeart}/>{likes}
                 </button>
                 <button className="comments"  title="Comments">
                     <FontAwesomeIcon icon={faComments}/>
