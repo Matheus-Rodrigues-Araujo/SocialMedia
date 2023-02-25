@@ -83,12 +83,12 @@ postController.put("/likeDislike/:id", verifyToken, async(req, res) => {
            post.likes = post.likes.filter((id) => id !== currentUserId)
            await post.save()
            const likes = post.likes.length
-           return res.status(200).json({likes: likes})
+           return res.status(200).json({likes: likes, liked: false})
         } else {
            post.likes.push(currentUserId)
            await post.save()
            const likes = post.likes.length
-           return res.status(200).json({likes: likes})
+           return res.status(200).json({likes: likes, liked: true})
         }
     } catch (error) {
         return res.status(500).json(error.message) 

@@ -8,8 +8,8 @@ import "./styles/Main.css"
 import "./styles/App.css"
 import './styles/Home.css'
 import './styles/Welcome.css'
-import './styles/SignIn.css'
-import "./styles/SignUp.css"
+import './styles/Forms/SignIn.css'
+import "./styles/Forms/SignUp.css"
 import './styles/Sidebar/Sidebar.css'
 import './styles/Logo.css'
 import './styles/Post/Post.css'

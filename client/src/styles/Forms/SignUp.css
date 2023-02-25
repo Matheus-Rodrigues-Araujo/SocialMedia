@@ -1,5 +1,4 @@
 .register-conteiner{
-  /* height: 100%; */
   gap: 1.5em;
   padding: 55px 1em;
   display: grid;
@@ -7,14 +6,12 @@
 }
 
 .register-form{
-  background-color: var(--darkblue);
+  background-color: black;
   color: white;
-  /* gap: .2rem; */
   font-weight: 2.2rem;
   display: flex;
   flex-flow: column wrap;
   padding: 10px;
-  /* margin: auto auto; */
   max-height: auto;
   justify-content: center;
   border-radius:.1em;
