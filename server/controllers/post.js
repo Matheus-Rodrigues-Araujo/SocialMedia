@@ -6,8 +6,7 @@ const postController = require('express').Router()
 postController.get('/getAll', async(req, res) => {
     try {
         const posts = await Post.find({})
-
-        return res.status(200).json(posts)
+        return res.status(200).json({posts: posts})
     } catch (error) {
         return res.status(500).json(error.message)
     }
@@ -20,7 +19,7 @@ postController.get('/find/:id', async(req, res) => {
        if(!post){
          return res.status(500).json({msg: "No such post with this id!"})
        } else {
-        return res.status(200).json(post)
+        return res.status(200).json({post:post})
        }
     } catch (error) {
         return res.status(500).json(error.message)
@@ -76,10 +75,10 @@ postController.delete('/:id', verifyToken, async(req, res) => {
 postController.put("/likeDislike/:id", verifyToken, async(req, res) => {
     try {
         const currentUserId = req.userId
-        const post = await Post.findById(req.body.postId)
+        const post = await Post.findById(req.params.id)
 
      
-        if(post.likes.includes(currentUserId)){
+        if(post.likes.includes(currentUserId) ){
            post.likes = post.likes.filter((id) => id !== currentUserId)
            await post.save()
            const likes = post.likes.length
@@ -94,5 +93,7 @@ postController.put("/likeDislike/:id", verifyToken, async(req, res) => {
         return res.status(500).json(error.message) 
     }
 })
+
+
 
 module.exports = postController
