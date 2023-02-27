@@ -51,3 +51,15 @@
 .profile-card .name{
     font-size: 1.8rem;
 }
+
+@media screen and (max-width: 1290px) {
+ .user-profile{
+    width: 150px;
+ }
+}
+
+@media screen and (max-width: 1045px){
+    .user-profile{
+        display: none;
+    }
+}
