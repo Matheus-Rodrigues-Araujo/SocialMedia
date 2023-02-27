@@ -4,13 +4,43 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import Axios from 'axios'
 export const PostCard = ({post}) =>{
-    const [likes, setLikes] = useState(post?.likes.length)
-    const [liked, setLiked] = useState(null)
     const auth = useSelector(state => state.user.auth)
     const token = auth?.token
+    const [postInfo, setPostInfo] = useState({...post})
+    const [isLoading, setIsLoading] = useState(false)
+    const [likes, setLikes] = useState(null)
+    const [color, setColor] = useState('white')
+    
 
-    const postData = async ()=>{
-        const postId = post._id
+   useEffect(()=>{
+      if(postInfo.likes){
+        setLikes(postInfo?.likes.length)
+      }
+    },[])
+
+    useEffect(()=>{
+      updatePostData()
+    }, [])
+
+    const updatePostData = async () =>{
+      const postId = postInfo._id
+      const url=`http://localhost:4000/post/find/${postId}`
+      const config={
+        headers:{
+          // 'authorization': `Bearer ${token}`,
+          "content-type": "application/json"
+        }
+      }
+
+      await Axios.get(url, config)
+      .then((res)=> {
+        setPostInfo(res.data.post)
+      })
+      .catch((error)=> console.log(error))
+    }
+ 
+    const likeUnlikePost = async ()=>{
+        const postId = postInfo._id
         const url=`http://localhost:4000/post/likeDislike/${postId}`
         const config={
           headers:{
@@ -21,23 +51,27 @@ export const PostCard = ({post}) =>{
   
         await Axios.put(url, {postId: postId},config)
         .then((res)=> {
-        setLikes(res.data.likes)
-        setLiked(res.data.liked)
+          setLikes(res.data.likes)
+          updatePostData()
         })
         .catch((error)=> console.log(error))
       }
     
-    useEffect(()=>{
-      likes && postData()
-    },[])
-
+    if(isLoading){
+      return <>Loading...</>
+    }else{
     return (
-        <li className='post-card' key={post.name}>
-            <p className="title">@{post.title}</p>
-            <p className="description" >{post.desc}</p>
+        <li className='post-card' key={postInfo.name}>
+            <p className="title">@{postInfo.title}</p>
+            <p className="description" >{postInfo.desc}</p>
             <div className="post-status">
-                <button className="like" title="Likes" onClick={postData}>
-                    <FontAwesomeIcon icon={faHeart} style={liked ? {color: 'red'} : {color: 'white'}} />{likes}
+                <button className="like" title="Likes" onClick={likeUnlikePost}>
+                    <FontAwesomeIcon icon={faHeart}
+                    style={
+                      postInfo?.likes.includes(auth?.user._id) ? {color: 'orangered'} : {color: 'white'}
+                    }
+                    />
+                      {likes}
                 </button>
                 <button className="comments"  title="Comments">
                     <FontAwesomeIcon icon={faComments}/>
@@ -52,4 +86,5 @@ export const PostCard = ({post}) =>{
             </div>
         </li>
     )
+  }
 }

@@ -11,7 +11,7 @@ export const Welcome = () => {
         const url = "http://localhost:4000/post/getAll"
         const config= {'content-type': 'application/json'}
         await Axios.get(url, config).then(res => {
-            setPostsList(res.data)
+            setPostsList(res.data.posts)
         })
         .catch(error => console.log(error))
     }

@@ -56,13 +56,13 @@
     padding: 5px;
     font-size: 2rem;
     width: 100%;
+    border: 1.5px solid var(--dark-grey);
 }
 
 .description{
-    border: none;
     padding: 5px;
+    border: 1.5px solid var(--dark-grey);
 }
-
 
 
 .post-buttons-conteiner{
