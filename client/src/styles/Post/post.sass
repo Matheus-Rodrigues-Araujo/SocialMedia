@@ -1,0 +1,193 @@
+/* POST */
+.post{
+    display: grid;
+}
+
+.post-form{
+    font-size: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: center;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    gap: 1em;
+    left: 0;
+    top: 0;
+    background-color: white;
+
+
+    .logo-conteiner{
+        background-color: black;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        
+        svg{
+            color: white;
+        }
+    }
+
+    .content{
+        padding: 60px;
+        display: grid;
+        gap: 10px;
+
+    }
+    
+    h3{
+        font-size: 4rem;
+        text-align: center;
+        color: var(--darkblue);
+        padding: 5px;
+        border-bottom: 3px solid var(--grey);
+    }
+}
+
+
+.author{
+    font-size: 2.5rem;
+    color: var(--blue);
+}
+
+.title{
+    color: var(--cyanblue);
+    padding: 5px;
+    font-size: 2rem;
+    width: 100%;
+    border: 1.5px solid var(--dark-grey);
+}
+
+.description{
+    padding: 5px;
+    border: 1.5px solid var(--dark-grey);
+}
+
+
+.post-buttons-conteiner{
+    display: flex;
+    border-bottom: 3px solid var(--grey);
+    padding-bottom: 8px;
+    gap: 5px;
+}
+
+.cancel-btn, .post-btn{
+    color: white;
+    padding: 10px;
+    font-size: 2.5rem;
+    border: none;
+    border-radius: .3em;
+    width: 100%;
+    cursor: pointer;
+}
+
+.cancel-btn{
+    background-color: var(--red);
+    text-align: center;
+    text-decoration: none;
+
+    &:hover{ background-color: var(--light-red);}
+}
+
+.post-btn{ 
+    background-color: var(--blue);
+    &:hover{ background-color: var(--light-blue); }
+}
+
+.posts-list{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 1em;
+    border: 1.5px solid var(--green);
+    background-color: var(--dark-grey);
+}
+
+.post-card{
+    width: 100%;
+    margin-inline: auto;
+    border: 2px solid black;
+    display: grid;
+    margin-left: 0;
+    height: 180px;
+    width: 100%;
+    border-radius: .7em;
+    border-color: var(--green);
+    text-align: justify;
+    font-size: 2rem;
+    background-color: black;
+    color: white;
+}
+
+.post-status{
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid gray;
+    padding: 5px;
+    gap: 2em;
+
+    button{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 2.5rem;
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    svg{
+        font-size: 2.5rem;
+        color: var(--cyanblue);
+    }
+
+    svg{
+        color: white;
+    }
+}
+
+.comment{
+    display: flex;
+    padding: 5px;
+    border-top: 1.5px solid var(--grey);
+}
+
+.comment-text{
+    background-color: black;
+    flex: 3;
+    color: white;
+}
+
+.publish-btn{
+    flex: 1;
+    background-color: transparent;
+    color: var(--cyanblue);
+    font-size: 2rem;
+
+    &:hover{
+        color: white;
+    }
+}
+
+.comment-text, .publish-btn{
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+} 
+
+
+
+
+@media screen and (max-width: 720px) {
+    .posts-list .post-card{
+        width: 100%;
+        font-size: 1.8rem;
+    }
+}

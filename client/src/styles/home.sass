@@ -1,0 +1,90 @@
+.home{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+  min-height: 100vh;
+  padding: 50px;
+  background-color: black;
+}
+
+.form-conteiner{
+  padding: 1em;
+  gap: 5px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-size: 2rem;
+
+}
+
+.home-greetings{
+  height: inherit;
+
+    .first-img{
+        width: 450px;
+        height: 90%;
+        border-radius: 1em;
+    }
+
+    h2{
+        font-size: 3rem;
+        color: var(--green);
+    }
+
+    p{
+        color: white;
+        font-size: 2.6rem;
+        font-weight: 700;
+    }
+}
+
+greetings  p{
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--grey);
+}
+
+.link-btn{
+  background-color: var(--blue);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  transition: .4s ease-in-out;
+  text-decoration: none;
+
+  &:hover{
+     background-color: rgb(9, 202, 35);
+      outline: none;
+  }
+}
+
+.users-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  padding: 20px;
+
+    .user{
+        font-size: .7em;
+        text-align: left;
+        border: none;
+        border-radius: 1em;
+        color: white;
+        background-color: var(--darkblue);
+    
+        .username{
+            color: var(--cyanblue);
+            font-weight: 700;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+  .home-greetings{
+    display: none;
+  }
+  .form-conteiner{
+    grid-template-columns: auto;
+  }
+}

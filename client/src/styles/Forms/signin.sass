@@ -1,0 +1,112 @@
+.login-conteiner{
+  gap: 1.5em;
+  padding: 1em;
+  display: grid;
+}
+
+.login-form{
+  background-color: black;
+  color: white;
+  font-weight: 2.2rem;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 10px;
+  max-height: auto;
+  justify-content: center;
+  border-radius:.1em;
+  outline: 3px outset var(--green);
+
+   .login-form  > h1{
+    text-align: center;
+   }
+   
+    .logo-conteiner{
+        font-size: 4rem;
+        margin-inline: auto;
+    }
+
+   .logo-conteiner, .logo-conteiner a{
+        font-size: 4rem;
+   }
+
+}
+
+.fields{
+  color: rgb(68, 55, 55);
+}
+
+label{
+  display: grid;
+  color: white;
+  gap: .5em;
+}
+
+
+.btn-styled{
+  background-color: rgb(8, 123, 158);
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 2rem;
+  transition: .4s ease-in-out;
+}
+
+.fields input{
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: .1em;
+  outline: none;
+
+    &:hover{
+        outline: 5px solid rgb(8, 123, 158);
+    }
+
+    .btn-styled:hover{
+        background-color: rgb(9, 202, 35);
+        outline: none;
+    }
+
+}
+
+.error-msg{
+  color: red;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.forgot-password{
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: 10px;
+  font-size: 2rem;
+}
+
+.create-account-link {
+  color: white;
+  text-align: center;
+  margin: 10px;
+  font-size: 2rem;
+
+    a{
+        color: var(--cyanblue);
+    }
+}
+
+.help-conteiner{
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1.5em;
+  margin-bottom:10px;
+  justify-content: center;
+
+    div{
+        outline: 3px outset var(--green);
+    }
+}
+
