@@ -7,9 +7,11 @@ export const PostCard = ({post}) =>{
     const auth = useSelector(state => state.user.auth)
     const token = auth?.token
     const [postInfo, setPostInfo] = useState({...post})
+    const [commentText, setCommentText] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [likes, setLikes] = useState(null)
-    const [color, setColor] = useState('white')
+    const [comments, setComments] = useState(null)
+    // const [color, setColor] = useState('white')
     
 
    useEffect(()=>{
@@ -17,6 +19,20 @@ export const PostCard = ({post}) =>{
         setLikes(postInfo?.likes.length)
       }
     },[])
+
+    
+    useEffect(()=>{
+      if(commentText.length){
+        publishComment()
+        setCommentText("")
+      }
+    }, [])
+
+    useEffect(()=>{
+      if(postInfo._id){
+        getComments()
+      }
+    }, [])
 
     useEffect(()=>{
       updatePostData()
@@ -27,7 +43,6 @@ export const PostCard = ({post}) =>{
       const url=`http://localhost:4000/post/find/${postId}`
       const config={
         headers:{
-          // 'authorization': `Bearer ${token}`,
           "content-type": "application/json"
         }
       }
@@ -56,6 +71,41 @@ export const PostCard = ({post}) =>{
         })
         .catch((error)=> console.log(error))
       }
+
+    const publishComment = async () =>{
+      // const comment = value
+      const  url = 'http://localhost:4000/comment'
+      const data ={
+        postId: postInfo._id,
+        commentText: commentText
+      }
+      const config={
+        headers:{
+          'authorization': `Bearer ${token}`,
+          "content-type": "application/json"
+        }
+      }
+
+      const response = await Axios.post(url, data, config)
+      response.data && console.log('Comment has been texted')
+      getComments()
+    }
+
+    const getComments = async () =>{
+      const url = `http://localhost:4000/comment/${postInfo._id}`
+      const config={
+        headers:{
+          'authorization': `Bearer ${token}`,
+          "content-type": "application/json"
+        }
+      }
+      Axios.get(url, config)
+      .then(res => {
+        setComments(res.data.length)
+      })
+      .catch(err => console.log(err))
+    }
+
     
     if(isLoading){
       return <>Loading...</>
@@ -75,14 +125,15 @@ export const PostCard = ({post}) =>{
                 </button>
                 <button className="comments"  title="Comments">
                     <FontAwesomeIcon icon={faComments}/>
+                    {postInfo._id && comments}
                 </button>
                 <button className="mark" title="Mark">
                     <FontAwesomeIcon icon={faBookmark}/>
                 </button>
             </div>
             <div className="comment">
-                <input type="text" className="comment-text"/>
-                <input type="submit" value="Publish" className="publish-btn"/>
+                <input type="text" className="comment-text" value={commentText} onChange={e=>setCommentText(e.target.value)} />
+                <input type="submit" value="Publish" className="publish-btn" onClick={publishComment} />
             </div>
         </li>
     )

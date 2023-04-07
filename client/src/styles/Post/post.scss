@@ -163,6 +163,9 @@
     background-color: black;
     flex: 3;
     color: white;
+    // outline: 1px outset var(--light-gray);
+    border: 2px solid var(--grey);
+    border-radius: .3em;
 }
 
 .publish-btn{
@@ -176,7 +179,7 @@
     }
 }
 
-.comment-text, .publish-btn{
+.publish-btn{
     border: none;
     cursor: pointer;
     padding: 5px;
