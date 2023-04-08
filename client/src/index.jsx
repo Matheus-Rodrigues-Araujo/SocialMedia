@@ -6,15 +6,15 @@ import {store} from './config/store'
 
 import "./styles/main.scss"
 import "./styles/app.scss"
-import './styles/home.scss'
-import './styles/welcome.scss'
-import './styles/Forms/signin.scss'
-import "./styles/Forms/signup.scss"
+// import './styles/home.scss'
+// import './styles/welcome.scss'
+// import './styles/Forms/signin.scss'
+// import "./styles/Forms/signup.scss"
 import './styles/Sidebar/sidebar.scss'
-import './styles/logo.scss'
+// import './styles/logo.scss'
 import './styles/Post/post.scss'
 import './styles/Profile/profile.scss'
-import './styles/notfound.scss'
+// import './styles/notfound.scss'
 
 
 const root = ReactDOM.createRoot(

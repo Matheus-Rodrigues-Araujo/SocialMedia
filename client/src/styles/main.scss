@@ -1,34 +1,38 @@
+:root{
+    font-size: 8px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .main{
-    display: flex;
-    grid-template-columns: repeat(2, 1.2fr 2fr);
-    height: 100%;
-    background-color: black;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    gap: 20px;
 }
 
-.main-content{
-    margin-inline: auto;
-    min-height: 100vh;
-    font-size: 2rem;
-    padding: 1em;
-    text-align: justify;
-}
+// .main-content{
+    
+// }
 
 
-@media screen and (max-width: 800px) {
-    .main-content{
-        margin-left: 120px;
-    }
-}
+// @media screen and (max-width: 800px) {
+//     .main-content{
+//         margin-left: 120px;
+//     }
+// }
 
-@media screen and (min-width: 801px) {
-    .main-content{
-        margin-left: 300px;
-    }
-}
+// @media screen and (min-width: 801px) {
+//     .main-content{
+//         margin-left: 300px;
+//     }
+// }
 
-@media screen and (min-width: 1200px) {
-    .main-content{
-        margin-inline: auto;
-    }
-}
+// @media screen and (min-width: 1200px) {
+//     .main-content{
+//         margin-inline: auto;
+//     }
+// }

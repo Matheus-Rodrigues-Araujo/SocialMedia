@@ -31,23 +31,23 @@
 }
 
 
-.displayUsers{
-  margin-top: 30px;
-  padding: 1em;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  font-size: .5rem;
-  width: 100%;
-}
+// .displayUsers{
+//   margin-top: 30px;
+//   padding: 1em;
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   font-size: .5rem;
+//   width: 100%;
+// }
 
 
-.filteredUser{
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  text-align: center;
+// .filteredUser{
+//   width: 100%;
+//   display: flex;
+//   flex-flow: column wrap;
+//   text-align: center;
 
-    .findUser{
-        margin-inline: auto;
-    }
-}
+//     .findUser{
+//         margin-inline: auto;
+//     }
+// }

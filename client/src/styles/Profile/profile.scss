@@ -1,26 +1,26 @@
 .user-profile{
-    position: fixed;
-    right: 0;
-    padding: 15px 20px;
-    width: 350px;
-    background-color: transparent;
+    // position: fixed;
+    // right: 0;
+    // padding: 15px 20px;
+    // width: 350px;
+    // background-color: transparent;
     color: white;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 0;
-    border-right: 0;
-    border-style: solid;
-    border-color: var(--green);
+    // display: flex;
+    // flex-flow: row wrap;
+    // justify-content: space-between;
+    // align-items: center;
+    // border-top: 0;
+    // border-right: 0;
+    // border-style: solid;
+    // border-color: var(--green);
 }
 
 .user-profile .profile-card{
-    display: flex;
-    height: auto;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // height: auto;
+    // gap: 10px;
+    // align-items: center;
+    // justify-content: center;
 }
 
 .edit-link{
@@ -57,14 +57,14 @@
 
 
 
-@media screen and (max-width: 1290px) {
- .user-profile{
-    width: 150px;
- }
-}
+// @media screen and (max-width: 1290px) {
+//  .user-profile{
+//     width: 150px;
+//  }
+// }
 
-@media screen and (max-width: 1045px){
-    .user-profile{
-        display: none;
-    }
-}
+// @media screen and (max-width: 1045px){
+//     .user-profile{
+//         display: none;
+//     }
+// }
