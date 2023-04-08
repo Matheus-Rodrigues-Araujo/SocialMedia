@@ -26,7 +26,7 @@ commentController.get('/find/:commentId', async(req, res) => {
 // create a comment
 commentController.post('/', verifyToken, async(req, res) => {
     try {
-        const createdComment = await Comment.create({...req.body, userId: req.user.id})
+        const createdComment = await Comment.create({...req.body, userId: req.userId})
 
         return res.status(201).json(createdComment)
     } catch (error) {
