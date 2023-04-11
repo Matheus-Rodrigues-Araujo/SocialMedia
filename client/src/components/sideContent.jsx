@@ -2,7 +2,7 @@ export const SideContent = () =>{
     return(
         <div className="side-content" >
             <div className="search" >
-                <input type="text" />
+                <input type="text" placeholder="Search..." />
                 <button>OK</button>
             </div>
             <div className="copyright">
@@ -10,8 +10,8 @@ export const SideContent = () =>{
                 <a href="">Privacy policy</a>
                 <a href="">Cookies policy</a>
                 <a href="">Accessibility</a>
-                <a href="">Ads</a>
                 <p>&copy;TalkNow,Inc.</p>
+                <a href="">Ads</a>
 
             </div>
         </div>

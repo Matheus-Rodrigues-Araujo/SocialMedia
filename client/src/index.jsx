@@ -4,13 +4,14 @@ import App from './App';
 import { Provider } from 'react-redux';
 import {store} from './config/store'
 
-import "./styles/main.scss"
-import "./styles/app.scss"
-// import './styles/home.scss'
+import "./styles/App/main.scss"
+import "./styles/App/app.scss"
+import './styles/App/home.scss'
 // import './styles/welcome.scss'
-// import './styles/Forms/signin.scss'
-// import "./styles/Forms/signup.scss"
+import './styles/Forms/signin.scss'
+import "./styles/Forms/signup.scss"
 import './styles/Sidebar/sidebar.scss'
+import './styles/SideContent/sideContent.scss'
 // import './styles/logo.scss'
 import './styles/Post/post.scss'
 import './styles/Profile/profile.scss'

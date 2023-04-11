@@ -27,6 +27,11 @@ export const Sidebar = () =>{
 
   const listItems = [
     {
+      name:'TalkNow!',
+      icon: faComment,
+      link:'/user'
+    },
+    {
       name: 'Home',
       icon: faHome,
       link: '/user'
@@ -51,6 +56,12 @@ export const Sidebar = () =>{
       icon: faTools,
       link: '/user/settings'
     },
+    {
+      name: 'Profile',
+      icon: faUser,
+      link: '/profile'
+    }
+    ,
     {
       name: 'Logout',
       icon: faDoorOpen,
@@ -91,10 +102,6 @@ export const Sidebar = () =>{
   
 return (
   <div className='sidebar'>
-    <li className='logo-conteiner' >
-      <FontAwesomeIcon icon={faComment} />
-      <Link to='/user' className='logo-name'>Talk Now!</Link>
-    </li>
     <SidebarLinks logout={()=>{
       dispatch(disconnectUser())
        navigate('/')
